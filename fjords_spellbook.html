@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fjord's Grimoire - Reality Scar Hunter's Compendium</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&family=Crimson+Text:ital@1&display=swap');
+        
+        body {
+            background: #0a0a0a;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Courier Prime', monospace;
+            color: #d4d4d4;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            border: 3px solid #666;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+        }
+        
+        .title-page {
+            text-align: center;
+            border-bottom: 3px double #888;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-family: 'Special Elite', monospace;
+            font-size: 2.8em;
+            color: #fff;
+            text-transform: uppercase;
+            margin: 0 0 15px 0;
+            letter-spacing: 5px;
+            text-shadow: 3px 3px 0px #000;
+        }
+        
+        .subtitle {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 1.3em;
+            color: #aaa;
+            margin: 10px 0;
+        }
+        
+        .author {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.1em;
+            color: #888;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .note {
+            background: #000;
+            border-left: 3px solid #666;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #aaa;
+            font-size: 0.95em;
+        }
+        
+        .section-header {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.8em;
+            color: #fff;
+            text-transform: uppercase;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #666;
+            letter-spacing: 3px;
+        }
+        
+        .spell {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid #444;
+            padding: 20px;
+            margin: 25px 0;
+            page-break-inside: avoid;
+        }
+        
+        .spell-title {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.4em;
+            color: #fff;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .spell-meta {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dotted #444;
+        }
+        
+        .expertise-badge {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 3px 10px;
+            margin-right: 10px;
+            border: 1px solid #666;
+            font-family: 'Special Elite', monospace;
+            font-size: 0.85em;
+        }
+        
+        .difficulty {
+            display: inline-block;
+            padding: 3px 8px;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+        
+        .diff-1 { background: #2a4a2a; color: #8f8; }
+        .diff-2 { background: #4a4a2a; color: #ff8; }
+        .diff-3 { background: #4a2a2a; color: #f88; }
+        
+        .spell-description {
+            margin: 15px 0;
+            line-height: 1.7;
+            color: #d4d4d4;
+        }
+        
+        .ritual-note {
+            background: #0a0a0a;
+            border-left: 3px solid #666;
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-style: italic;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+        
+        .mechanics {
+            background: #000;
+            border: 1px solid #666;
+            padding: 12px;
+            margin: 12px 0;
+            font-size: 0.9em;
+        }
+        
+        .mechanics-title {
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 0.85em;
+        }
+        
+        th {
+            background: #222;
+            color: #fff;
+            padding: 6px;
+            text-align: left;
+            border: 1px solid #444;
+            font-size: 0.8em;
+        }
+        
+        td {
+            padding: 5px 6px;
+            border: 1px solid #444;
+            color: #d4d4d4;
+        }
+        
+        tr:nth-child(even) {
+            background: #151515;
+        }
+        
+        .component {
+            color: #8f8;
+            font-weight: bold;
+        }
+        
+        .warning {
+            background: #4a2a2a;
+            border: 2px solid #f88;
+            padding: 12px;
+            margin: 15px 0;
+            color: #faa;
+        }
+        
+        .warning-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .divider {
+            text-align: center;
+            margin: 30px 0;
+            color: #666;
+            font-size: 1.5em;
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+        
+        @media print {
+            body { background: white; color: black; }
+            .container { border: none; box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="title-page">
+            <h1>FJORD'S GRIMOIRE</h1>
+            <div class="subtitle">A Compendium of High Ritual Workings</div>
+            <div class="subtitle">For the Collection & Study of Reality Scars</div>
+            <div class="author">— By Fjord the Hermit —</div>
+            <div class="author" style="font-size: 0.9em; margin-top: 30px;">Practice: High Ritual</div>
+        </div>
+        
+        <div class="note">
+            <strong>Author's Preface:</strong><br><br>
+            This grimoire documents my workings in the pursuit of Reality Scars—those precious tears in the fabric of consensus reality where the Man's control falters. Each spell herein has been tested and refined through countless hours of preparation. Remember: High Ritual is not for the impatient. We trade speed for precision, haste for power. 
+            <br><br>
+            The Arts listed represent minimum competency. Your mileage may vary.
+            <br><br>
+            <em>— F.T.H., written in the Sanctuary, Year of Our Discontent</em>
+        </div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <!-- EXPERTISE LEVEL 1 SPELLS -->
+        
+        <div class="section-header">/// Level One: Novitiate Workings ///</div>
+        
+        <div class="note">
+            These are the foundations. Simple, reliable, essential. I cast these in my sleep—which, given my habit of sleepwalking during geometric meditation, is not entirely metaphorical.
+        </div>
+
+        <!-- SPELL 1 -->
+        <div class="spell">
+            <div class="spell-title">Unseen Hand</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="expertise-badge">UTILITY</span>
+                <span class="difficulty diff-1">DR 12</span>
+            </div>
+            
+            <div class="spell-description">
+                The fundamental telekinetic working. Move small objects without physical contact—perfect for retrieving components from across the Sanctuary, opening locks from the other side, or impressing the credulous.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY METHODOLOGY:</strong> I inscribe a temporary circle of chalk mixed with iron filings. The geometric precision must be exact—I use a compass and straightedge, naturally. While focusing on the object, I recite the Hermetic formula of extension in pseudo-Latin, visualizing silver threads connecting my will to the target.
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Mechanics</div>
+                <table>
+                    <tr>
+                        <th>Component</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Required Arts</td>
+                        <td>Pyr +1</td>
+                        <td>To generate kinetic force</td>
+                    </tr>
+                    <tr>
+                        <td>Base DR</td>
+                        <td>12</td>
+                        <td>Simple task</td>
+                    </tr>
+                    <tr>
+                        <td>Duration</td>
+                        <td>Until dawn</td>
+                        <td>Or until concentration breaks</td>
+                    </tr>
+                    <tr>
+                        <td>Weight Limit</td>
+                        <td>~10 lbs</td>
+                        <td>Heavier objects +2 DR per 5 lbs</td>
+                    </tr>
+                    <tr>
+                        <td>Prep Time</td>
+                        <td>d6 hours</td>
+                        <td>Standard High Ritual</td>
+                    </tr>
+                </table>
+                
+                <strong>Components:</strong> Chalk, iron filings, clear line of sight<br>
+                <strong>Backlash Risk:</strong> Minor. Worst I've experienced was objects flying at my face.
+            </div>
+        </div>
+
+        <!-- SPELL 2 -->
+        <div class="spell">
+            <div class="spell-title">The Fool's Curtain</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="expertise-badge">MISDIRECTION</span>
+                <span class="difficulty diff-1">DR 14</span>
+            </div>
+            
+            <div class="spell-description">
+                Creates a minor illusion or sensory misdirection. I use this constantly when collecting components in public spaces. Makes observers think they saw something mundane rather than a robed madman harvesting reality fragments.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY METHODOLOGY:</strong> A mirror is essential—I use a small silver compact. I write what I want people to perceive on parchment in mirror-script, burn it while gazing into the reflection, and speak the words backwards. The smoke carries the false image into their perception.
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Mechanics</div>
+                <table>
+                    <tr>
+                        <th>Component</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Required Arts</td>
+                        <td>Pneuma +1</td>
+                        <td>To affect minds/perception</td>
+                    </tr>
+                    <tr>
+                        <td>Base DR</td>
+                        <td>14</td>
+                        <td>Standard magical difficulty</td>
+                    </tr>
+                    <tr>
+                        <td>Witnesses</td>
+                        <td>+2 DR per witness</td>
+                        <td>Affects 1-3 people reliably</td>
+                    </tr>
+                    <tr>
+                        <td>Duration</td>
+                        <td>d6 minutes</td>
+                        <td>Or until they examine closely</td>
+                    </tr>
+                </table>
+                
+                <strong>Components:</strong> Small mirror, parchment, match<br>
+                <strong>Backlash Risk:</strong> Moderate. I've had my own perceptions scrambled before.
+            </div>
+            
+            <div class="warning">
+                <div class="warning-title">⚠ Warning:</div>
+                Do NOT use on more than 5 people simultaneously unless you enjoy the sensation of your brain leaking out your ears. I learned this at a bus stop. Still have the headaches.
+            </div>
+        </div>
+
+        <!-- SPELL 3 -->
+        <div class="spell">
+            <div class="spell-title">Hermit's Beacon</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="expertise-badge">UTILITY</span>
+                <span class="difficulty diff-1">DR 12</span>
+            </div>
+            
+            <div class="spell-description">
+                Creates a small, floating light that follows me around. Indispensable for exploring abandoned buildings, sewers, and other places where Reality Scars tend to manifest. Much better than fumbling with a flashlight, which inevitably triggers Surveillance State.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY METHODOLOGY:</strong> I capture natural light in a glass vial during the day (preferably at exact noon for maximum potency). At night, I release it through a geometric focus—usually a quartz prism. The light "remembers" being free and follows the command to illuminate my path.
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Mechanics</div>
+                <table>
+                    <tr>
+                        <th>Component</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Required Arts</td>
+                        <td>Pyr +1</td>
+                        <td>To manipulate light/energy</td>
+                    </tr>
+                    <tr>
+                        <td>Base DR</td>
+                        <td>12</td>
+                        <td>Simple working</td>
+                    </tr>
+                    <tr>
+                        <td>Duration</td>
+                        <td>Until dawn</td>
+                        <td>Light fades with sunrise</td>
+                    </tr>
+                    <tr>
+                        <td>Brightness</td>
+                        <td>Candlelight</td>
+                        <td>15-foot radius</td>
+                    </tr>
+                </table>
+                
+                <strong>Components:</strong> Glass vial, captured sunlight, quartz prism<br>
+                <strong>Backlash Risk:</strong> Minimal. Worst case: temporary blindness.
+            </div>
+        </div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <!-- EXPERTISE LEVEL 2 SPELLS -->
+        
+        <div class="section-header">/// Level Two: Adept Formulations ///</div>
+        
+        <div class="note">
+            Here the real work begins. These spells require not just knowledge but understanding. The geometry becomes more complex, the timing more precise, the consequences of failure more severe.
+        </div>
+
+        <!-- SPELL 4 -->
+        <div class="spell">
+            <div class="spell-title">The Walking Door</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 2</span>
+                <span class="expertise-badge">TRAVEL</span>
+                <span class="difficulty diff-2">DR 18</span>
+            </div>
+            
+            <div class="spell-description">
+                Short-range teleportation through folded space. Essential for escaping danger or reaching Reality Scars in inaccessible locations. I've used this to bypass locked doors, scale walls, and once—memorably—to escape a pack of feral cyborgs in the ruins of a Tesla factory.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY METHODOLOGY:</strong> This requires a doorframe. Any doorframe. I draw sigils on both sides with blessed chalk, then visualize the destination while walking through repeatedly (exactly seven times—six won't work, eight causes problems). On the seventh passage, I step through to my target location instead of the room beyond.
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Mechanics</div>
+                <table>
+                    <tr>
+                        <th>Component</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Required Arts</td>
+                        <td>Chora +2</td>
+                        <td>To fold space</td>
+                    </tr>
+                    <tr>
+                        <td>Base DR</td>
+                        <td>14</td>
+                        <td>Standard difficulty</td>
+                    </tr>
+                    <tr>
+                        <td>Line of Sight</td>
+                        <td>+4 DR</td>
+                        <td>If destination not visible</td>
+                    </tr>
+                    <tr>
+                        <td>Final DR</td>
+                        <td>18</td>
+                        <td>For blind teleport</td>
+                    </tr>
+                    <tr>
+                        <td>Range</td>
+                        <td>~100 feet</td>
+                        <td>Longer distances +2 DR per 100 ft</td>
+                    </tr>
+                    <tr>
+                        <td>Prep Time</td>
+                        <td>d6 hours</td>
+                        <td>Includes creating doorframe focus</td>
+                    </tr>
+                </table>
+                
+                <strong>Components:</strong> Doorframe (portable frame works), blessed chalk, exact knowledge of destination<br>
+                <strong>Backlash Risk:</strong> SEVERE. Telefragging is real. I once materialized halfway through a filing cabinet.
+            </div>
+            
+            <div class="warning">
+                <div class="warning-title">⚠ Critical Warning:</div>
+                NEVER teleport to a location you cannot visualize clearly. I learned this when I tried to reach "the nearest Reality Scar" without specific coordinates. Spent three days in a place that was simultaneously nowhere and everywhere. The screaming has mostly stopped.
+            </div>
+        </div>
+
+        <!-- SPELL 5 -->
+        <div class="spell">
+            <div class="spell-title">Sovereign's Tongue</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 2</span>
+                <span class="expertise-badge">MIND CONTROL</span>
+                <span class="difficulty diff-2">DR 16</span>
+            </div>
+            
+            <div class="spell-description">
+                Implants a simple command in the target's mind. Nothing complex—"forget you saw me," "unlock that door," "walk away." The Man's servants are particularly vulnerable to this, being already conditioned to follow orders without question.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY METHODOLOGY:</strong> I inscribe the command in golden ink on the inside of my left palm before encountering the target. During conversation, I make eye contact, press my palm to my forehead in an apparently casual gesture, and recite an innocuous phrase in conversation that contains the command encoded in gematria. Their subconscious picks it up even as their conscious mind ignores it.
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Mechanics</div>
+                <table>
+                    <tr>
+                        <th>Component</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Required Arts</td>
+                        <td>Pneuma +2</td>
+                        <td>To control mind</td>
+                    </tr>
+                    <tr>
+                        <td>Base DR</td>
+                        <td>14</td>
+                        <td>Standard difficulty</td>
+                    </tr>
+                    <tr>
+                        <td>Resistance</td>
+                        <td>+2 DR</td>
+                        <td>Target may test Presence to resist</td>
+                    </tr>
+                    <tr>
+                        <td>Final DR</td>
+                        <td>16</td>
+                        <td>Against unwilling target</td>
+                    </tr>
+                    <tr>
+                        <td>Duration</td>
+                        <td>d6 minutes</td>
+                        <td>Or until command fulfilled</td>
+                    </tr>
+                    <tr>
+                        <td>Complexity</td>
+                        <td>Simple only</td>
+                        <td>One action, clearly defined</td>
+                    </tr>
+                </table>
+                
+                <strong>Components:</strong> Golden ink, direct eye contact, encoded phrase<br>
+                <strong>Backlash Risk:</strong> HIGH. Mental backlash can reverse the command onto yourself.
+            </div>
+            
+            <div class="warning">
+                <div class="warning-title">⚠ Ethical Note:</div>
+                I use this sparingly. Not out of morality—I'm beyond the Man's pathetic "ethics"—but because enslaving minds attracts attention from Things that also enjoy that particular vice. You don't want to end up on a demon's radar as competition.
+            </div>
+        </div>
+
+        <!-- SPELL 6 -->
+        <div class="spell">
+            <div class="spell-title">Prestidigitator's Veil</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 2</span>
+                <span class="expertise-badge">SLEIGHT OF HAND</span>
+                <span class="difficulty diff-2">DR 14</span>
+            </div>
+            
+            <div class="spell-description">
+                Enhanced manual dexterity combined with perceptual misdirection. Perfect for stealing exotic components, planting tracking sigils, or swapping genuine reality fragments with fakes when dealing with untrustworthy buyers.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY METHODOLOGY:</strong> I anoint my hands with an oil I've prepared from moonflower and mercury (don't ask about the mercury fumes—I have Concerns about my long-term health). While my hands are still slick, I practice the motion I'll need to execute exactly 33 times. On the 33rd repetition, the muscle memory becomes magically perfect.
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Mechanics</div>
+                <table>
+                    <tr>
+                        <th>Component</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Required Arts</td>
+                        <td>Pneuma +1, Vita +1</td>
+                        <td>Mind + body enhancement</td>
+                    </tr>
+                    <tr>
+                        <td>Base DR</td>
+                        <td>14</td>
+                        <td>Standard difficulty</td>
+                    </tr>
+                    <tr>
+                        <td>Additional Art</td>
+                        <td>+2 DR</td>
+                        <td>For using Vita</td>
+                    </tr>
+                    <tr>
+                        <td>Final DR</td>
+                        <td>16</td>
+                        <td>But -2 if in Sanctuary with prep</td>
+                    </tr>
+                    <tr>
+                        <td>Duration</td>
+                        <td>One action</td>
+                        <td>Single perfect motion</td>
+                    </tr>
+                </table>
+                
+                <strong>Components:</strong> Moonflower oil, mercury, 33 practice repetitions<br>
+                <strong>Backlash Risk:</strong> Moderate. Failed castings have caused temporary paralysis of hands.
+            </div>
+        </div>
+
+        <!-- SPELL 7 -->
+        <div class="spell">
+            <div class="spell-title">Smoke Step</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 2</span>
+                <span class="expertise-badge">ESCAPE</span>
+                <span class="difficulty diff-2">DR 16</span>
+            </div>
+            
+            <div class="spell-description">
+                Transform my body temporarily into smoke, allowing me to slip through cracks, under doors, through ventilation systems. The ultimate escape mechanism when collecting Reality Scars in surveilled corporate facilities.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY METHODOLOGY:</strong> I must prepare by fasting for 24 hours (to make my body "lighter"). I inhale incense smoke—specifically a blend I make from sage, tobacco, and a particular fungus found only at Reality Scars—while sitting in a circle of salt. As I exhale, I visualize my solid form dispersing like cigarette smoke, and speak the formula of dissolution.
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Mechanics</div>
+                <table>
+                    <tr>
+                        <th>Component</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Required Arts</td>
+                        <td>Alchemy +2, Vita +2</td>
+                        <td>Transform matter + living flesh</td>
+                    </tr>
+                    <tr>
+                        <td>Base DR</td>
+                        <td>14</td>
+                        <td>Standard difficulty</td>
+                    </tr>
+                    <tr>
+                        <td>Additional Art</td>
+                        <td>+2 DR</td>
+                        <td>For second Art (Vita)</td>
+                    </tr>
+                    <tr>
+                        <td>Final DR</td>
+                        <td>16</td>
+                        <td>Self-transformation</td>
+                    </tr>
+                    <tr>
+                        <td>Duration</td>
+                        <td>d6 minutes</td>
+                        <td>Or until I choose to solidify</td>
+                    </tr>
+                    <tr>
+                        <td>Vulnerability</td>
+                        <td>Strong wind</td>
+                        <td>Disperses me—painful reassembly</td>
+                    </tr>
+                </table>
+                
+                <strong>Components:</strong> <span class="component">Reality Scar fungus</span>, sage, tobacco, salt circle, 24-hour fast<br>
+                <strong>Backlash Risk:</strong> EXTREME. I once failed to fully resolidify for a week. Still finding smoke in odd places.
+            </div>
+            
+            <div class="warning">
+                <div class="warning-title">⚠ Critical Warning:</div>
+                Do NOT use this spell if it's windy. Do NOT use this spell if there are fans running. Do NOT sneeze while incorporeal. These lessons were learned the hard way.
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <!-- EXPERTISE LEVEL 3 SPELLS -->
+        
+        <div class="section-header">/// Level Three: Master Workings ///</div>
+        
+        <div class="note">
+            We have reached the apex of my current understanding. These spells require absolute precision, extensive preparation, and significant sacrifice. I reserve them for dire circumstances or when the reward—a Reality Scar fragment, for instance—justifies the risk.
+        </div>
+
+        <!-- SPELL 8 -->
+        <div class="spell">
+            <div class="spell-title">The Burning Sovereign</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 3</span>
+                <span class="expertise-badge">PYR - COMBAT</span>
+                <span class="difficulty diff-3">DR 20</span>
+            </div>
+            
+            <div class="spell-description">
+                Summon a controlled inferno shaped to my will. I can direct it as a lance of flame, a protective wall, or—in one memorable incident—a flaming sword that actually functioned. This is my go-to when dealing with the Things that guard Reality Scars.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY METHODOLOGY:</strong> Fire is chaos constrained. I begin by constructing a geometric pattern of flammable materials—usually alcohol-soaked rope in the shape of sacred geometry. I light it while chanting the Promethean invocation, then "grab" the fire with my will and reshape it. The key is maintaining the geometric structure even as the fire moves—imagine sculpting with something that wants desperately to burn you.
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Mechanics</div>
+                <table>
+                    <tr>
+                        <th>Component</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Required Arts</td>
+                        <td>Pyr +3</td>
+                        <td>To control fire/heat/energy</td>
+                    </tr>
+                    <tr>
+                        <td>Base DR</td>
+                        <td>14</td>
+                        <td>Standard magical difficulty</td>
+                    </tr>
+                    <tr>
+                        <td>Power Scale</td>
+                        <td>+6 DR</td>
+                        <td>For significant destructive force</td>
+                    </tr>
+                    <tr>
+                        <td>Final DR</td>
+                        <td>20</td>
+                        <td>Master-level working</td>
+                    </tr>
+                    <tr>
+                        <td>Damage</td>
+                        <td>2d6</td>
+                        <td>To d4 targets in close grouping</td>
+                    </tr>
+                    <tr>
+                        <td>Duration</td>
+                        <td>d6 rounds</td>
+                        <td>Requires concentration</td>
+                    </tr>
+                    <tr>
+                        <td>Prep Time</td>
+                        <td>d6 hours</td>
+                        <td>Minimum, with components</td>
+                    </tr>
+                </table>
+                
+                <strong>Components:</strong> Geometric rope pattern, alcohol, source of flame, uninterrupted space<br>
+                <strong>Cost:</strong> I usually sacrifice d3 HP to reduce DR<br>
+                <strong>Backlash Risk:</strong> MAXIMUM. Fumbles have left me with 2nd-degree burns and once set my Sanctuary on fire.
+            </div>
+            
+            <div class="warning">
+                <div class="warning-title">⚠ Danger Assessment: EXTREME</div>
+                This spell has saved my life four times and nearly killed me six times. The math is not in its favor. Only use when absolutely necessary. Keep a fire extinguisher handy. Know where the nearest burn ward is located.
+            </div>
+        </div>
+
+        <!-- SPELL 9 -->
+        <div class="spell">
+            <div class="spell-title">Gates of Horn and Ivory</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 3</span>
+                <span class="expertise-badge">TRAVEL - EMERGENCY</span>
+                <span class="difficulty diff-3">DR 22</span>
+            </div>
+            
+            <div class="spell-description">
+                Open a portal to my Sanctuary from anywhere. My ultimate escape hatch. When everything goes wrong—and it will—this spell has pulled me out of collapsed buildings, demon-infested warehouses, and once, from inside a malfunctioning teleportation experiment that was rapidly approaching critical mass.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY METHODOLOGY:</strong> This requires permanent preparation in the Sanctuary itself. I've carved two doorframes—one made of genuine horn (expensive!), one of ivory (even more expensive!)—and positioned them as a pair. The horn gate leads TO my sanctuary, the ivory gate leads FROM it. When I need extraction, I draw a doorframe in the air with a piece of blessed chalk while speaking the words of return. The air becomes a door, and I step through.
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Mechanics</div>
+                <table>
+                    <tr>
+                        <th>Component</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Required Arts</td>
+                        <td>Chora +3, Chronos +2</td>
+                        <td>Space + Time manipulation</td>
+                    </tr>
+                    <tr>
+                        <td>Permanent Setup</td>
+                        <td>DR 30</td>
+                        <td>One-time creation in Sanctuary</td>
+                    </tr>
+                    <tr>
+                        <td>Activation DR</td>
+                        <td>20</td>
+                        <td>To open from remote location</td>
+                    </tr>
+                    <tr>
+                        <td>Additional Art</td>
+                        <td>+2 DR</td>
+                        <td>For using Chronos</td>
+                    </tr>
+                    <tr>
+                        <td>Final Activation</td>
+                        <td>22</td>
+                        <td>Emergency use</td>
+                    </tr>
+                    <tr>
+                        <td>Range</td>
+                        <td>Unlimited</td>
+                        <td>Tied to Sanctuary itself</td>
+                    </tr>
+                    <tr>
+                        <td>Duration</td>
+                        <td>d6 seconds</td>
+                        <td>Must move fast</td>
+                    </tr>
+                </table>
+                
+                <strong>Permanent Components:</strong> <span class="component">Horn doorframe</span>, <span class="component">ivory doorframe</span>, extensive ritual work<br>
+                <strong>Activation Components:</strong> Blessed chalk, words of return (must be memorized)<br>
+                <strong>Cost:</strong> The initial setup cost me significant Wealth and d6 HP in sacrificial blood to bind it<br>
+                <strong>Backlash Risk:</strong> CATASTROPHIC if fumbled. Could collapse the portal while you're inside it.
+            </div>
+            
+            <div class="warning">
+                <div class="warning-title">⚠ Setup Warning:</div>
+                The initial creation of this spell took me three months of preparation and nearly bankrupted me. The horn and ivory must be ethically sourced (spiritually speaking—murdered animals leave taint). I used mammoth ivory and ram's horn blessed by three different traditions. Worth every penny.
+            </div>
+        </div>
+
+        <!-- SPELL 10 -->
+        <div class="spell">
+            <div class="spell-title">Crown of the Sovereign Mind</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 3</span>
+                <span class="expertise-badge">MIND CONTROL - ADVANCED</span>
+                <span class="difficulty diff-3">DR 24</span>
+            </div>
+            
+            <div class="spell-description">
+                Complete mental domination of a single individual. Not mere suggestion—total control. I can see through their eyes, speak through their mouth, control their actions. I've used this exactly three times, and each time I felt a piece of my humanity crack. But when you need information from a corporate security chief about Reality Scar locations, squeamishness is a luxury.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY METHODOLOGY:</strong> I require something of the target—hair, blood, or (best) a photograph taken without their knowledge. I place this in a silver bowl of mercury and stare into it while it spins, matching my breathing to the rhythm of the spiral. When the spiral pattern reaches exactly 13 rotations, I speak their true name (which I must discover beforehand) and step into their mind.
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Mechanics</div>
+                <table>
+                    <tr>
+                        <th>Component</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Required Arts</td>
+                        <td>Pneuma +3</td>
+                        <td>Master-level mental magic</td>
+                    </tr>
+                    <tr>
+                        <td>Base DR</td>
+                        <td>14</td>
+                        <td>Standard difficulty</td>
+                    </tr>
+                    <tr>
+                        <td>Full Control</td>
+                        <td>+6 DR</td>
+                        <td>Complete domination vs suggestion</td>
+                    </tr>
+                    <tr>
+                        <td>Resistance</td>
+                        <td>+4 DR</td>
+                        <td>Target tests Presence to resist</td>
+                    </tr>
+                    <tr>
+                        <td>Final DR</td>
+                        <td>24</td>
+                        <td>Against unwilling, aware target</td>
+                    </tr>
+                    <tr>
+                        <td>Duration</td>
+                        <td>d6 hours</td>
+                        <td>Or until I release them</td>
+                    </tr>
+                    <tr>
+                        <td>Range</td>
+                        <td>Unlimited</td>
+                        <td>If I have proper components</td>
+                    </tr>
+                </table>
+                
+                <strong>Components:</strong> <span class="component">Target's true name</span>, personal item from target (hair/blood/unknowing photo), silver bowl, mercury, uninterrupted concentration<br>
+                <strong>Cost:</strong> Usually sacrifice d6 HP to reduce DR to manageable levels<br>
+                <strong>Backlash Risk:</strong> SOUL-DESTROYING. A fumble could trap your consciousness in their body while they take yours.
+            </div>
+            
+            <div class="warning">
+                <div class="warning-title">⚠ Psychological Warning:</div>
+                This spell damages the caster psychologically. When you wear another person's mind, you bring some of it back with you. I still have memories that aren't mine. I still sometimes prefer my coffee the way the security chief did. I dream his dreams. Use this spell only when there is no alternative.
+            </div>
+            
+            <div class="note" style="background: #4a2a2a; border-left-color: #f88; color: #faa;">
+                <strong>Personal Note:</strong> I nearly didn't include this spell in the grimoire. It violates something fundamental. But I've learned that Reality Scars are guarded by things far worse than ethical quandaries. Sometimes you must become the monster to hunt the monsters. Just... try not to enjoy it.
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <!-- REALITY SCAR SPECIFIC SPELLS -->
+        
+        <div class="section-header">/// Reality Scar Operations ///</div>
+        
+        <div class="note">
+            These workings are specifically designed for locating, accessing, and harvesting materials from Reality Scars. They represent my life's work and the reason I've survived where others haven't.
+        </div>
+
+        <!-- SPELL 11 -->
+        <div class="spell">
+            <div class="spell-title">The Frayed Edge Detection</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 2</span>
+                <span class="expertise-badge">DETECTION</span>
+                <span class="difficulty diff-2">DR 16</span>
+            </div>
+            
+            <div class="spell-description">
+                Sense the presence of Reality Scars within a wide radius. The world becomes... translucent. I can see where consensus reality has worn thin, where the Man's control falters. Appears as a kind of visual static, like dead pixels in reality itself.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY METHODOLOGY:</strong> I've created special lenses from glass harvested at a Reality Scar (the glass formed when lightning struck sand at a dimensional breach—perfect sympathetic link). I mount these in wire frames and wear them while burning a candle made from beeswax mixed with ground Reality Scar fragments. The combination lets me literally see the tears.
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Mechanics</div>
+                <table>
+                    <tr>
+                        <th>Component</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Required Arts</td>
+                        <td>Pneuma +2, Chora +1</td>
+                        <td>Perception + Space</td>
+                    </tr>
+                    <tr>
+                        <td>Base DR</td>
+                        <td>14</td>
+                        <td>Standard difficulty</td>
+                    </tr>
+                    <tr>
+                        <td>Additional Art</td>
+                        <td>+2 DR</td>
+                        <td>For Chora</td>
+                    </tr>
+                    <tr>
+                        <td>Exotic Component</td>
+                        <td>-2 DR</td>
+                        <td>Reality Scar glass lenses</td>
+                    </tr>
+                    <tr>
+                        <td>Exotic Component</td>
+                        <td>-2 DR</td>
+                        <td>Reality Scar fragment candle</td>
+                    </tr>
+                    <tr>
+                        <td>Final DR</td>
+                        <td>12</td>
+                        <td>With proper preparation</td>
+                    </tr>
+                    <tr>
+                        <td>Range</td>
+                        <td>1 mile radius</td>
+                        <td>Stronger scars visible further</td>
+                    </tr>
+                    <tr>
+                        <td>Duration</td>
+                        <td>d6 hours</td>
+                        <td>While candle burns</td>
+                    </tr>
+                </table>
+                
+                <strong>Components:</strong> <span class="component">Reality Scar glass lenses</span>, <span class="component">candle with ground Reality Scar wax</span><br>
+                <strong>Backlash Risk:</strong> Moderate. Can cause temporary blindness or perception of things that aren't there. Or worse—things that ARE there but shouldn't be visible.
+            </div>
+        </div>
+
+        <!-- SPELL 12 -->
+        <div class="spell">
+            <div class="spell-title">Harvester's Protection</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 3</span>
+                <span class="expertise-badge">PROTECTION</span>
+                <span class="difficulty diff-3">DR 20</span>
+            </div>
+            
+            <div class="spell-description">
+                Creates a protective barrier against the... inhabitants... of Reality Scars. Things That Never Were hate this spell, which is exactly why I developed it. The barrier doesn't make me invisible to them, but it does prevent them from easily tearing me apart when I'm collecting Quantum Spaghetti or other materials.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY METHODOLOGY:</strong> I draw a circle around myself using salt that has been blessed in three different religious traditions (ecumenical approach—can't be too careful). I place four mirrors at the cardinal points, angled to reflect any approaching entity back at itself. Then I recite the formula of sovereignty while visualizing an invisible shell around me. The mirrors provide the reflective barrier, the salt provides the binding.
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Mechanics</div>
+                <table>
+                    <tr>
+                        <th>Component</th>
+                        <th>Value</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Required Arts</td>
+                        <td>Pneuma +3, Alchemy +2</td>
+                        <td>Spirit ward + physical barrier</td>
+                    </tr>
+                    <tr>
+                        <td>Base DR</td>
+                        <td>14</td>
+                        <td>Standard difficulty</td>
+                    </tr>
+                    <tr>
+                        <td>Additional Art</td>
+                        <td>+2 DR</td>
+                        <td>For Alchemy</td>
+                    </tr>
+                    <tr>
+                        <td>Power Level</td>
+                        <td>+4 DR</td>
+                        <td>Protection vs Bestiary-level entities</td>
+                    </tr>
+                    <tr>
+                        <td>Final DR</td>
+                        <td>20</td>
+                        <td>Master working</td>
+                    </tr>
+                    <tr>
+                        <td>Duration</td>
+                        <td>d6 hours</td>
+                        <td>Or until circle broken</td>
+                    </tr>
+                    <tr>
+                        <td>Mobility</td>
+                        <td>None</td>
+                        <td>Must stay in circle—limitation</td>
+                    </tr>
+                </table>
+                
+                <strong>Components:</strong> Triple-blessed salt, four mirrors (silver-backed), formula of sovereignty<br>
+                <strong>Cost:</strong> Usually sacrifice d4 HP to strengthen the barrier<br>
+                <strong>Backlash Risk:</strong> HIGH. A fumbled protection spell can actually ATTRACT entities rather than repel them.
+            </div>
+            
+            <div class="warning">
+                <div class="warning-title">⚠ Usage Note:</div>
+                This spell makes me stationary. I use it as a "safe room" while cataloging Reality Scar findings, not during active collection. Combine with Smoke Step or Gates of Horn for emergency exit strategy.
+            </div>
+        </div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <!-- APPENDICES -->
+        
+        <div class="section-header">/// Appendix: Component Sources ///</div>
+        
+        <div class="note">
+            A brief guide to where I source my more exotic components. Some locations I keep deliberately vague—a practitioner must maintain SOME trade secrets.
+        </div>
+
+        <div class="spell" style="background: rgba(0,0,0,0.3);">
+            <div class="spell-title" style="font-size: 1.2em;">Reality Scar Locations (Partial List)</div>
+            
+            <div class="spell-description">
+                <strong>1. The Abandoned Tesla Factory, Nevada Desert</strong><br>
+                Class: Minor Scar<br>
+                Hazards: Feral cyborgs, residual electromagnetic interference<br>
+                Materials: Quantum Spaghetti (rare), magnetized fragments, corrupted silicon<br>
+                <br>
+                
+                <strong>2. The Collapsed Supercollider, Beneath Geneva</strong><br>
+                Class: Major Scar<br>
+                Hazards: Temporal distortions, Things That Never Were, aggressive security<br>
+                Materials: Tachyon-fused metal, quantum foam residue, paradox crystals<br>
+                <br>
+                
+                <strong>3. [LOCATION REDACTED], Former Soviet Union</strong><br>
+                Class: Catastrophic Scar<br>
+                Hazards: [DATA CORRUPTED]<br>
+                Materials: Everything. Do not recommend.<br>
+                Note: I only went once. Once was enough.<br>
+                <br>
+                
+                <strong>4. The Underneath, Accessible via Storm Drains, Major Cities</strong><br>
+                Class: Micro-Scars (numerous)<br>
+                Hazards: The Lost (insane practitioners), mundane homeless who don't appreciate visitors<br>
+                Materials: Urban decay fragments, consensus cracks, the tears of the forgotten<br>
+            </div>
+        </div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <div class="section-header">/// Final Notes ///</div>
+        
+        <div class="note" style="font-size: 1.1em; padding: 25px;">
+            This grimoire represents years of work, numerous failures, and more than a few close calls with death, madness, and things worse than either. I share this knowledge not out of generosity—we High Ritualists are not known for that—but because the work is bigger than any one practitioner.
+            <br><br>
+            Reality Scars are multiplying. The Man's control is fracturing. Whether this heralds liberation or apocalypse remains to be seen. Either way, someone needs to study these phenomena, harvest their materials, and perhaps—just perhaps—find a way to either seal them or tear reality wide open.
+            <br><br>
+            I haven't decided which goal I prefer yet.
+            <br><br>
+            Use this knowledge wisely. Or don't. Wisdom is overrated when you're trying to overthrow consensus reality.
+            <br><br>
+            <em>Invoke often.</em>
+            <br><br>
+            — Fjord the Hermit<br>
+            High Ritual Practice<br>
+            Year of Our Discontent<br>
+            Written in the Sanctuary during the Dark Moon<br>
+            May the Man never find this.
+        </div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 20px; border: 2px solid #666; background: #000;">
+            <div style="font-family: 'Special Elite', monospace; font-size: 1.2em; color: #fff; margin-bottom: 10px;">
+                ⚠ CLASSIFIED: HIGH RITUAL MATERIALS ⚠
+            </div>
+            <div style="font-size: 0.9em; color: #888;">
+                This grimoire is the property of Fjord the Hermit<br>
+                If found, do not read aloud<br>
+                Do not attempt the workings without proper training<br>
+                The Management is not responsible for summonings, possessions,<br>
+                temporal paradoxes, or existential crises resulting from improper use<br>
+                <br>
+                <em>Död Magiker Compatible</em>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

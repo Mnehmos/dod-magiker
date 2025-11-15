@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fjord's Grimoire - Volume II: Modular Foundations</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&family=Crimson+Text:ital@1&display=swap');
+        
+        body {
+            background: #0a0a0a;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Courier Prime', monospace;
+            color: #d4d4d4;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            border: 3px solid #666;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+        }
+        
+        .title-page {
+            text-align: center;
+            border-bottom: 3px double #888;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-family: 'Special Elite', monospace;
+            font-size: 2.8em;
+            color: #fff;
+            text-transform: uppercase;
+            margin: 0 0 15px 0;
+            letter-spacing: 5px;
+            text-shadow: 3px 3px 0px #000;
+        }
+        
+        .subtitle {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 1.3em;
+            color: #aaa;
+            margin: 10px 0;
+        }
+        
+        .author {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.1em;
+            color: #888;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .note {
+            background: #000;
+            border-left: 3px solid #666;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #aaa;
+            font-size: 0.95em;
+        }
+        
+        .section-header {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.8em;
+            color: #fff;
+            text-transform: uppercase;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #666;
+            letter-spacing: 3px;
+        }
+        
+        .spell {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid #444;
+            padding: 20px;
+            margin: 25px 0;
+            page-break-inside: avoid;
+        }
+        
+        .spell-title {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.4em;
+            color: #fff;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .spell-meta {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dotted #444;
+        }
+        
+        .expertise-badge {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 3px 10px;
+            margin-right: 10px;
+            border: 1px solid #666;
+            font-family: 'Special Elite', monospace;
+            font-size: 0.85em;
+        }
+        
+        .modular-badge {
+            display: inline-block;
+            background: #2a4a4a;
+            color: #8ff;
+            padding: 3px 10px;
+            margin-right: 10px;
+            border: 1px solid #8ff;
+            font-family: 'Special Elite', monospace;
+            font-size: 0.85em;
+        }
+        
+        .difficulty {
+            display: inline-block;
+            padding: 3px 8px;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+        
+        .diff-1 { background: #2a4a2a; color: #8f8; }
+        
+        .spell-description {
+            margin: 15px 0;
+            line-height: 1.7;
+            color: #d4d4d4;
+        }
+        
+        .ritual-note {
+            background: #0a0a0a;
+            border-left: 3px solid #666;
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-style: italic;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+        
+        .modular-section {
+            background: #1a2a2a;
+            border: 2px solid #4a6a6a;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .modular-title {
+            font-family: 'Special Elite', monospace;
+            color: #8ff;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 0.95em;
+            letter-spacing: 1px;
+        }
+        
+        .variant {
+            background: #0a0a0a;
+            border-left: 3px solid #4a6a6a;
+            padding: 10px 15px;
+            margin: 8px 0;
+        }
+        
+        .variant-name {
+            color: #8ff;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .mechanics {
+            background: #000;
+            border: 1px solid #666;
+            padding: 12px;
+            margin: 12px 0;
+            font-size: 0.9em;
+        }
+        
+        .mechanics-title {
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 0.85em;
+        }
+        
+        th {
+            background: #222;
+            color: #fff;
+            padding: 6px;
+            text-align: left;
+            border: 1px solid #444;
+            font-size: 0.8em;
+        }
+        
+        td {
+            padding: 5px 6px;
+            border: 1px solid #444;
+            color: #d4d4d4;
+        }
+        
+        tr:nth-child(even) {
+            background: #151515;
+        }
+        
+        .component {
+            color: #8f8;
+            font-weight: bold;
+        }
+        
+        .warning {
+            background: #4a2a2a;
+            border: 2px solid #f88;
+            padding: 12px;
+            margin: 15px 0;
+            color: #faa;
+        }
+        
+        .warning-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .divider {
+            text-align: center;
+            margin: 30px 0;
+            color: #666;
+            font-size: 1.5em;
+        }
+        
+        .philosophy-box {
+            background: #2a2a1a;
+            border: 2px solid #6a6a4a;
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #d4c4a4;
+        }
+        
+        @media print {
+            body { background: white; color: black; }
+            .container { border: none; box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="title-page">
+            <h1>FJORD'S GRIMOIRE</h1>
+            <div class="subtitle">Volume II: Modular Foundations</div>
+            <div class="subtitle">Or, "How I Learned to Stop Worrying and Love the Paradigm Shift"</div>
+            <div class="author">— By Fjord the Hermit —</div>
+            <div class="author" style="font-size: 0.9em; margin-top: 30px;">High Ritual Practice</div>
+        </div>
+        
+        <div class="philosophy-box">
+            <strong>On the Nature of Modular Magic:</strong><br><br>
+            
+            After years of rigid adherence to formulae, I've come to understand something the old grimoires never quite articulated: there are many paths to the same destination. A lock may be picked (Alchemy), the key stolen from someone's mind (Pneuma), or the door itself convinced it was never locked (Vita + Pneuma on the door's "memory"). 
+            <br><br>
+            This volume documents that revelation. Each spell here is less a specific formula and more a concept—a problem with multiple solutions. I present my preferred High Ritual methodology, but I've noted alternatives. Some Folk practitioner will probably read this and scoff at my elaborate circles when they could achieve the same with chicken bones and spit. Let them. I'll be over here with my precise geometric accuracy, thank you.
+            <br><br>
+            The Arts are tools. The Will is the craftsman. Don't let anyone tell you there's only one way to build a cathedral—or tear one down.
+            <br><br>
+            <em>— F.T.H.</em>
+        </div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <div class="section-header">/// Foundational Workings: The Modular Approach ///</div>
+
+        <!-- SPELL 1 -->
+        <div class="spell">
+            <div class="spell-title">The Witness Veil</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="modular-badge">MODULAR</span>
+                <span class="expertise-badge">CONCEALMENT</span>
+                <span class="difficulty diff-1">DR 12-14</span>
+            </div>
+            
+            <div class="spell-description">
+                Make yourself forgettable, unnoticeable, or literally invisible. The fundamental concealment working every practitioner needs. I use this constantly—can't study Reality Scars if security guards keep asking what I'm doing in the condemned warehouse at 3 AM.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY HIGH RITUAL METHOD:</strong> I inscribe my name on a black mirror in silver, then systematically erase each letter while reciting a formula of diminishment. As each letter vanishes, I become less "present" to observers. Complete erasure equals invisibility. The mirror must be kept on my person for the duration.
+            </div>
+            
+            <div class="modular-section">
+                <div class="modular-title">⚙ Modular Applications</div>
+                
+                <div class="variant">
+                    <div class="variant-name">PNEUMA APPROACH: "Notice-Me-Not"</div>
+                    DR 12 | Affect minds to simply not register your presence. You're there, they just don't care. Presence test to resist if you do something dramatic.
+                    <br><strong>My Notes:</strong> Most energy-efficient. People's eyes slide right over you. I once stood in an elevator with a Man's agent for seven floors.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PYR + ALCHEMY: "Light-Bending"</div>
+                    DR 14 | Bend light around yourself using both Arts. True invisibility, but requires constant concentration and doesn't work on thermal imaging.
+                    <br><strong>My Notes:</strong> Flashy but exhausting. Good for short-term applications. That +2 DR for the extra Art hurts.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHORA: "Spatial Displacement"</div>
+                    DR 12 | You're slightly "beside" where you appear to be. Observers see empty space.
+                    <br><strong>My Notes:</strong> Weird side effects. Had a conversation with someone while using this once—they kept turning to where they THOUGHT I was. Disorienting for everyone involved.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">VITA: "Camouflage Skin"</div>
+                    DR 12 | Your skin and clothes adapt to surroundings like a chameleon. Must stay still or move slowly.
+                    <br><strong>My Notes:</strong> Creepy. Your body literally changes color. The first time I used this, I spent ten minutes afterwards making sure I'd returned to my original skin tone.
+                </div>
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Base Mechanics</div>
+                <table>
+                    <tr>
+                        <th>Approach</th>
+                        <th>Arts Required</th>
+                        <th>DR</th>
+                        <th>Duration</th>
+                    </tr>
+                    <tr>
+                        <td>Pneuma (Mental)</td>
+                        <td>Pneuma +1</td>
+                        <td>12</td>
+                        <td>Until dawn or noticed</td>
+                    </tr>
+                    <tr>
+                        <td>Pyr + Alchemy</td>
+                        <td>Pyr +1, Alchemy +1</td>
+                        <td>14</td>
+                        <td>Concentration required</td>
+                    </tr>
+                    <tr>
+                        <td>Chora (Space)</td>
+                        <td>Chora +1</td>
+                        <td>12</td>
+                        <td>Until dawn</td>
+                    </tr>
+                    <tr>
+                        <td>Vita (Biological)</td>
+                        <td>Vita +1</td>
+                        <td>12</td>
+                        <td>While stationary/slow</td>
+                    </tr>
+                </table>
+                
+                <strong>Universal Components:</strong> Method-dependent, but all require focus item<br>
+                <strong>Backlash Risk:</strong> Minor to Moderate depending on approach
+            </div>
+        </div>
+
+        <!-- SPELL 2 -->
+        <div class="spell">
+            <div class="spell-title">The Message</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="modular-badge">MODULAR</span>
+                <span class="expertise-badge">COMMUNICATION</span>
+                <span class="difficulty diff-1">DR 10-16</span>
+            </div>
+            
+            <div class="spell-description">
+                Send a message to someone far away. Crucial for coordinating with my network of informants about Reality Scar sightings without triggering Surveillance State (fucking smartphones are basically tracking devices for the Man).
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY HIGH RITUAL METHOD:</strong> I write the message on rice paper with ink made from my blood and the recipient's (I keep samples). I burn the paper while speaking their name thrice, and the message manifests as ash-writing that appears on the nearest flat surface to them.
+            </div>
+            
+            <div class="modular-section">
+                <div class="modular-title">⚙ Modular Applications</div>
+                
+                <div class="variant">
+                    <div class="variant-name">PNEUMA: "Thought Whisper"</div>
+                    DR 12 | Message appears directly in their mind as a thought in your voice.
+                    <br><strong>My Notes:</strong> Intimate and immediate. Can be unsettling for the recipient. One contact thought they were going mad until I explained.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHORA: "Folded Words"</div>
+                    DR 14 | Speak into folded space; your words emerge from thin air near recipient.
+                    <br><strong>My Notes:</strong> Dramatic but requires knowing their exact location. The +2 DR for Chora when you don't have line of sight makes this challenging.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">VITA: "Carrier Bird"</div>
+                    DR 10 | Enchant an actual bird to carry your message. Old school.
+                    <br><strong>My Notes:</strong> Slower but charming. Plus the bird can bring back a reply. I have a raven I use regularly. Named him Nevermore. I'm hilarious.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PYR: "Smoke Signal 2.0"</div>
+                    DR 12 | Message written in smoke visible only to recipient.
+                    <br><strong>My Notes:</strong> Requires them to be watching sky/nearby smoke source. Good for pre-arranged signals.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHRONOS: "Time-Delayed Message"</div>
+                    DR 16 | Send message that arrives at specific future time.
+                    <br><strong>My Notes:</strong> Useful for alibis. "I was sending that message when the incident occurred, officer."
+                </div>
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Base Mechanics</div>
+                <strong>Range:</strong> Usually unlimited with proper sympathetic link<br>
+                <strong>Message Length:</strong> ~25 words for basic casting, longer costs +2 DR per 25 words<br>
+                <strong>Components:</strong> Sympathetic link to recipient (hair, blood, true name, etc.)<br>
+                <strong>Backlash Risk:</strong> Low, but messages can be intercepted by other practitioners
+            </div>
+        </div>
+
+        <!-- SPELL 3 -->
+        <div class="spell">
+            <div class="spell-title">The Seal</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="modular-badge">MODULAR</span>
+                <span class="expertise-badge">SECURITY</span>
+                <span class="difficulty diff-1">DR 12-14</span>
+            </div>
+            
+            <div class="spell-description">
+                Lock or unlock doors, containers, files—anything that can be secured. Essential for both breaking into places that house Reality Scar information and protecting my own Sanctuary from nosy visitors.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY HIGH RITUAL METHOD:</strong> For locking: I draw a complex sigil over the lock mechanism in blessed oil, then speak a word of binding in Enochian. For unlocking: I draw the mirror-image sigil and speak the word backwards. Simple, elegant, effective.
+            </div>
+            
+            <div class="modular-section">
+                <div class="modular-title">⚙ Modular Applications</div>
+                
+                <div class="variant">
+                    <div class="variant-name">ALCHEMY: "Molecular Fusion/Separation"</div>
+                    DR 12 | Literally fuse the lock shut or separate the mechanism's components.
+                    <br><strong>My Notes:</strong> Permanent until reversed. I locked a door so thoroughly once that we had to break the wall. Oops.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PNEUMA: "Mind the Lock"</div>
+                    DR 14 | Convince the lock it's already open/closed. Works on electronic locks too.
+                    <br><strong>My Notes:</strong> Yes, locks have a form of awareness. Everything does if you dig deep enough into Pneuma theory. It's disturbing.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">VITA: "Grown Shut"</div>
+                    DR 12 | For wooden doors—grow the wood across the frame. Organic locks only.
+                    <br><strong>My Notes:</strong> Takes a minute to work. Good for barricading yourself somewhere. Less good when you need a quick exit.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHORA: "Keyhole to Nowhere"</div>
+                    DR 14 | Lock opens to a dimension where the key doesn't exist. Unopenable until dispelled.
+                    <br><strong>My Notes:</strong> Conceptually elegant. Practically a pain when I forget which doors I've done this to.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PYR: "Welded Shut"</div>
+                    DR 12 | Superheat metal locks to weld them. Loud, obvious, permanent.
+                    <br><strong>My Notes:</strong> Not subtle. Use only when subtlety is already compromised.
+                </div>
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Base Mechanics</div>
+                <strong>Complexity Modifier:</strong> Simple locks DR 12, Complex locks +2 DR, Electronic locks +4 DR<br>
+                <strong>Duration:</strong> Permanent until dispelled (except Vita method)<br>
+                <strong>Range:</strong> Touch usually, or line of sight with +2 DR<br>
+                <strong>Backlash Risk:</strong> Minimal, unless you lock yourself IN somewhere
+            </div>
+        </div>
+
+        <!-- SPELL 4 -->
+        <div class="spell">
+            <div class="spell-title">Object Reading</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="modular-badge">MODULAR</span>
+                <span class="expertise-badge">DIVINATION</span>
+                <span class="difficulty diff-1">DR 14</span>
+            </div>
+            
+            <div class="spell-description">
+                Learn the history of an object by touching it. Invaluable when examining Reality Scar fragments—I need to know where they came from, what event created them, what they've been exposed to. Also excellent for finding out if that "virgin" ritual component has actually been used before.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY HIGH RITUAL METHOD:</strong> I hold the object while in a meditative trance, having fasted for 12 hours and positioned myself in a circle of white sand. I recite the Litany of Echoes and let the object's accumulated experiences flow into me. It's like watching a very badly edited film from the object's perspective.
+            </div>
+            
+            <div class="modular-section">
+                <div class="modular-title">⚙ Modular Applications</div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHRONOS: "Temporal Echo Reading"</div>
+                    DR 14 | See the object's timeline directly. Most reliable method.
+                    <br><strong>My Notes:</strong> Clean, accurate, gives dates. My preferred method for anything important.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PNEUMA: "Psychometric Touch"</div>
+                    DR 12 | Feel the emotions and intentions of everyone who's touched it.
+                    <br><strong>My Notes:</strong> More subjective but faster. Good for detecting curses or malicious intent.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">ALCHEMY: "Atomic Memory"</div>
+                    DR 16 | Read the object's history from its molecular structure.
+                    <br><strong>My Notes:</strong> Incredibly detailed but takes forever to interpret. I see EVERYTHING down to temperature changes.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">VITA (if formerly living): "Death Memory"</div>
+                    DR 12 | If object is bone, wood, leather—learn about the creature it came from.
+                    <br><strong>My Notes:</strong> Disturbing. I learned way too much about the cow my boots came from.
+                </div>
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Base Mechanics</div>
+                <strong>Information Depth:</strong> Recent events easy, ancient history +2 DR per century<br>
+                <strong>Duration:</strong> Vision lasts d6 minutes<br>
+                <strong>Clarity:</strong> Depends on approach and object's "history saturation"<br>
+                <strong>Backlash Risk:</strong> Moderate—can experience object's traumas directly
+            </div>
+            
+            <div class="warning">
+                <div class="warning-title">⚠ Psychological Warning:</div>
+                Never use this on weapons that have killed people unless you're prepared for nightmares. Found that out reading a Reality Scar fragment that turned out to be from a collapsed psy-ops facility. Saw things. Still see things.
+            </div>
+        </div>
+
+        <!-- SPELL 5 -->
+        <div class="spell">
+            <div class="spell-title">The Compass</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="modular-badge">MODULAR</span>
+                <span class="expertise-badge">NAVIGATION</span>
+                <span class="difficulty diff-1">DR 12-16</span>
+            </div>
+            
+            <div class="spell-description">
+                Find something you're looking for. Person, place, object—doesn't matter. The more specific your target, the easier the spell. "Find Bob" is easier than "Find someone who knows about Reality Scars." This is different from the Scavenger's Compass in my staff—that's specifically attuned to Reality Scars. This is general-purpose.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY HIGH RITUAL METHOD:</strong> I use a pendulum made from crystal suspended over a map (or for nearby targets, just over the area). I charge it with my intention while reciting the Formula of Seeking, and it swings toward the target. More precise than GPS and doesn't trigger Surveillance State.
+            </div>
+            
+            <div class="modular-section">
+                <div class="modular-title">⚙ Modular Applications</div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHORA: "Spatial Dowsing"</div>
+                    DR 12 | Follow the "pull" of space folding toward target.
+                    <br><strong>My Notes:</strong> Physical sensation, like being tugged. Reliable for nearby targets.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PNEUMA: "Sympathetic Resonance"</div>
+                    DR 14 | If you have a connection to target, feel where they are.
+                    <br><strong>My Notes:</strong> Requires personal item or blood. Incredibly accurate. Also incredibly creepy to the target if they're sensitive.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHRONOS: "Probability Pathfinding"</div>
+                    DR 16 | Calculate most probable location based on temporal patterns.
+                    <br><strong>My Notes:</strong> Complex but useful for finding mobile targets. "Where will Bob be in 3 hours?"
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">VITA: "Tracker Beast"</div>
+                    DR 10 | Enchant a dog/rat/bird to lead you to target.
+                    <br><strong>My Notes:</strong> Only works if target has scent trail or physical trail to follow. Very reliable once established.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PYR: "Heat Seeking"</div>
+                    DR 12 | If looking for person/living thing, follow their heat signature.
+                    <br><strong>My Notes:</strong> Limited range but excellent for urban tracking. Everyone's thermal signature is unique.
+                </div>
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Base Mechanics</div>
+                <strong>Target Specificity:</strong> Named individual DR 12, "type of person" DR 14, "anything like X" DR 16<br>
+                <strong>Range:</strong> Method dependent, usually 1-5 miles<br>
+                <strong>Duration:</strong> Until target found or dawn<br>
+                <strong>Components:</strong> Sympathetic link helpful but not required<br>
+                <strong>Backlash Risk:</strong> Low, but can lead you to wrong target if you fumble
+            </div>
+        </div>
+
+        <!-- SPELL 6 -->
+        <div class="spell">
+            <div class="spell-title">Minor Mending</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="modular-badge">MODULAR</span>
+                <span class="expertise-badge">REPAIR</span>
+                <span class="difficulty diff-1">DR 10-14</span>
+            </div>
+            
+            <div class="spell-description">
+                Fix broken things. Tools break when collecting Reality Scar fragments—they're not designed for the stress. My clothes get torn climbing through condemned buildings. My glasses shattered when a demon looked at me funny. This spell has saved me thousands in replacement costs.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY HIGH RITUAL METHOD:</strong> I arrange the broken pieces in their original configuration, trace the cracks with gold leaf, and speak the Formula of Restoration. The gold melts into the cracks and bonds the pieces. The repair is visible but stronger than original.
+            </div>
+            
+            <div class="modular-section">
+                <div class="modular-title">⚙ Modular Applications</div>
+                
+                <div class="variant">
+                    <div class="variant-name">ALCHEMY: "Molecular Rebonding"</div>
+                    DR 10 | Simply fuse the molecules back together. Clean, invisible repair.
+                    <br><strong>My Notes:</strong> Best for glass, metal, ceramics. Doesn't work on complex mechanisms without increasing DR.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHRONOS: "Temporal Restoration"</div>
+                    DR 14 | Rewind the object to before it broke. Perfect repair.
+                    <br><strong>My Notes:</strong> Elegant but draining. The object "remembers" being broken and wants to return to that state.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">VITA: "Organic Regrowth"</div>
+                    DR 10 | For wood, bone, leather—make it regrow the missing part.
+                    <br><strong>My Notes:</strong> Takes time. Good for overnight repairs. The regrown part is living tissue for a while, which is weird.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PNEUMA: "Convince It It's Not Broken"</div>
+                    DR 12 | Object believes it's whole. Functions normally but is technically still broken.
+                    <br><strong>My Notes:</strong> Temporary fix. Lasts until dawn or until examined closely. Good for emergencies.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PYR: "Heat Welding"</div>
+                    DR 10 | Melt and reform broken edges. Crude but effective for metal.
+                    <br><strong>My Notes:</strong> Leaves obvious repair marks. Functional, not pretty.
+                </div>
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Base Mechanics</div>
+                <strong>Complexity:</strong> Simple break DR 10, Complex mechanism +2 DR, Shattered/multiple pieces +4 DR<br>
+                <strong>Size Limit:</strong> Can repair up to large item (door-sized), bigger items +2 DR per size category<br>
+                <strong>Duration:</strong> Permanent (except Pneuma method)<br>
+                <strong>Backlash Risk:</strong> Minimal. Worst case: repair is weak and fails under stress
+            </div>
+        </div>
+
+        <!-- SPELL 7 -->
+        <div class="spell">
+            <div class="spell-title">The Warding</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="modular-badge">MODULAR</span>
+                <span class="expertise-badge">PROTECTION</span>
+                <span class="difficulty diff-1">DR 12-14</span>
+            </div>
+            
+            <div class="spell-description">
+                Create a simple protective barrier against ONE specific thing. Not a full shield—that's higher level work—but enough to say "this one thing cannot affect me." I ward against bullets when meeting informants, against poison when dealing with Folk practitioners I don't trust, against surveillance when I don't want to be tracked.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY HIGH RITUAL METHOD:</strong> I inscribe a sigil representing the threat on my skin with ink mixed with something representing safety from that threat (iron filings for bullets, antitoxin for poison, etc.). I activate it with a word of denial. The sigil glows faintly when the ward is triggered.
+            </div>
+            
+            <div class="modular-section">
+                <div class="modular-title">⚙ Modular Applications</div>
+                
+                <div class="variant">
+                    <div class="variant-name">ALCHEMY: "Substance Rejection"</div>
+                    DR 12 | One type of physical substance can't touch you (bullets, acid, water, etc.)
+                    <br><strong>My Notes:</strong> Very specific. "Bullets" works. "Harm" doesn't. Need to define the substance clearly.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PNEUMA: "Mental Ward"</div>
+                    DR 12 | Protection against one type of mental attack (mind reading, possession, suggestion, etc.)
+                    <br><strong>My Notes:</strong> Essential when dealing with other Pneuma practitioners. Like psychic armor.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">VITA: "Biological Immunity"</div>
+                    DR 10 | Immune to one disease, poison, or biological agent for duration.
+                    <br><strong>My Notes:</strong> Great for exploring contaminated Reality Scars. I warded against radiation once. Still felt sick but didn't die.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PYR: "Energy Deflection"</div>
+                    DR 14 | Deflect one type of energy (heat, electricity, radiation, kinetic force)
+                    <br><strong>My Notes:</strong> Saved my life in the Tesla factory. Electricity just... curved around me.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHRONOS: "Temporal Dodge"</div>
+                    DR 14 | You're slightly "ahead" in time of one type of attack, so it misses.
+                    <br><strong>My Notes:</strong> Conceptually weird but incredibly effective. The attack happens "when you used to be."
+                </div>
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Base Mechanics</div>
+                <strong>Specificity:</strong> Must name exactly what you're warding against<br>
+                <strong>Strength:</strong> Basic ward blocks minor to moderate instances, +2 DR for strong protection<br>
+                <strong>Duration:</strong> Until dawn or until ward triggered 3 times<br>
+                <strong>Limitation:</strong> ONE threat type only per casting<br>
+                <strong>Backlash Risk:</strong> Moderate—failed ward can actually attract what you're warding against
+            </div>
+        </div>
+
+        <!-- SPELL 8 -->
+        <div class="spell">
+            <div class="spell-title">Sense Enhancement</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="modular-badge">MODULAR</span>
+                <span class="expertise-badge">PERCEPTION</span>
+                <span class="difficulty diff-1">DR 12</span>
+            </div>
+            
+            <div class="spell-description">
+                Enhance one of your senses to superhuman levels. See in darkness, hear whispers from across a building, smell the trace chemicals in Reality Scar fragments, taste poison in food, feel vibrations through walls. Each sense offers different tactical advantages.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY HIGH RITUAL METHOD:</strong> I anoint the relevant sensory organ (eyes for sight, ears for hearing, etc.) with oil mixed with herbs corresponding to that sense. I recite the Formula of Acuity while focusing all my attention on that single sense. The world through that sense becomes almost painfully vivid.
+            </div>
+            
+            <div class="modular-section">
+                <div class="modular-title">⚙ Modular Applications</div>
+                
+                <div class="variant">
+                    <div class="variant-name">VITA: "Biological Enhancement"</div>
+                    DR 12 | Physically enhance the sensory organ. Most reliable and well-rounded.
+                    <br><strong>My Notes:</strong> My go-to. Lasts longest, works predictably. Enhanced night vision has saved me countless times.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PYR: "Energy Sensing"</div>
+                    DR 12 | Extend sense to detect energy signatures invisible to normal perception.
+                    <br><strong>My Notes:</strong> Can "see" heat signatures, "hear" radio waves, "feel" electrical currents. Alien but useful.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PNEUMA: "Spirit Sense"</div>
+                    DR 12 | Extend sense into spiritual realm. See ghosts, hear thoughts, etc.
+                    <br><strong>My Notes:</strong> Overwhelming. The spiritual world is LOUD and BRIGHT and CROWDED. Use sparingly.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHRONOS: "Temporal Sensing"</div>
+                    DR 14 | See/hear/feel things slightly in the past or future.
+                    <br><strong>My Notes:</strong> Disorienting. You're sensing things that haven't happened yet or already finished. Good for prediction.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHORA: "Extended Range"</div>
+                    DR 12 | Sense extends far beyond normal range—see/hear miles away.
+                    <br><strong>My Notes:</strong> Requires knowing where to "look." Can't just scan randomly or you'll go mad from sensory overload.
+                </div>
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Base Mechanics</div>
+                <strong>Enhancement Level:</strong> Roughly 10x normal sensitivity<br>
+                <strong>Duration:</strong> d6 hours<br>
+                <strong>Drawback:</strong> Enhanced sense is vulnerable to overload (bright lights, loud noises, etc.)<br>
+                <strong>Limitation:</strong> ONE sense per casting<br>
+                <strong>Backlash Risk:</strong> Temporary loss of enhanced sense if fumbled
+            </div>
+            
+            <div class="warning">
+                <div class="warning-title">⚠ Sensory Warning:</div>
+                Do NOT enhance multiple senses simultaneously unless you enjoy feeling like your brain is melting. I tried enhancing sight AND hearing once. Spent six hours in a dark, silent room recovering from the grocery store.
+            </div>
+        </div>
+
+        <!-- SPELL 9 -->
+        <div class="spell">
+            <div class="spell-title">The Recording</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="modular-badge">MODULAR</span>
+                <span class="expertise-badge">DOCUMENTATION</span>
+                <span class="difficulty diff-1">DR 12-14</span>
+            </div>
+            
+            <div class="spell-description">
+                Capture and store information for later review. Better than cameras (Surveillance State) or notebooks (can be lost/stolen). I use this constantly to document Reality Scar configurations, record suspect conversations, preserve fleeting observations.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY HIGH RITUAL METHOD:</strong> I use a clear quartz crystal as a storage medium. I hold it while observing/experiencing what I want to record, speaking a binding phrase. Later, I hold the crystal and speak the release phrase—the memory plays back in my mind exactly as it occurred.
+            </div>
+            
+            <div class="modular-section">
+                <div class="modular-title">⚙ Modular Applications</div>
+                
+                <div class="variant">
+                    <div class="variant-name">ALCHEMY: "Crystal Storage"</div>
+                    DR 12 | Store in physical object (crystal, mirror, water). Objective recording.
+                    <br><strong>My Notes:</strong> Most reliable. The recording doesn't change with my memory. Pure data.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PNEUMA: "Memory Palace"</div>
+                    DR 10 | Store in your own enhanced memory. Subjective but immediate access.
+                    <br><strong>My Notes:</strong> Dangerous. Stored memories feel like my own memories. Hard to distinguish what I lived vs. what I recorded.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHRONOS: "Time Capture"</div>
+                    DR 14 | Capture actual moment in time, can replay it or step into it.
+                    <br><strong>My Notes:</strong> Incredibly detailed. Can examine the moment from any angle. Draining to maintain.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">VITA: "Genetic Memory"</div>
+                    DR 12 | Store in your DNA. Theoretically inheritable. Weird.
+                    <br><strong>My Notes:</strong> Used this once. Never again. The recording integrated into my instincts. I flinch from things I intellectually know are safe.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PYR: "Light Imprint"</div>
+                    DR 12 | Capture visual information in light patterns, view by recreating conditions.
+                    <br><strong>My Notes:</strong> Good for still images. Video gets complicated. Like magical photography.
+                </div>
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Base Mechanics</div>
+                <strong>Duration Captured:</strong> Up to d6 minutes per casting<br>
+                <strong>Storage Time:</strong> Permanent until retrieved or storage medium destroyed<br>
+                <strong>Fidelity:</strong> Perfect recall of whatever senses were active<br>
+                <strong>Components:</strong> Storage medium (method dependent)<br>
+                <strong>Backlash Risk:</strong> Low, but corrupted recording possible
+            </div>
+        </div>
+
+        <!-- SPELL 10 -->
+        <div class="spell">
+            <div class="spell-title">Surface Adhesion</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="modular-badge">MODULAR</span>
+                <span class="expertise-badge">MOBILITY</span>
+                <span class="difficulty diff-1">DR 12</span>
+            </div>
+            
+            <div class="spell-description">
+                Stick to or climb any surface like a spider. Reality Scars often manifest in inaccessible locations—rooftops, cliff faces, collapsed building interiors. This spell has prevented more broken bones than I can count.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY HIGH RITUAL METHOD:</strong> I create an adhesive paste from pine resin, spider silk, and my own spit (yes, really). I trace sigils on my palms and soles with this paste. When activated, I can stick to any surface as if magnetized to it. Feels bizarre, like the surface is pulling me.
+            </div>
+            
+            <div class="modular-section">
+                <div class="modular-title">⚙ Modular Applications</div>
+                
+                <div class="variant">
+                    <div class="variant-name">ALCHEMY: "Molecular Attraction"</div>
+                    DR 12 | Create temporary chemical bonds between you and surface.
+                    <br><strong>My Notes:</strong> Strongest adhesion. Can support full body weight on ceiling. Leaving residue is annoying though.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">VITA: "Gecko Hands"</div>
+                    DR 10 | Grow microscopic setae on hands/feet like a gecko. Natural adhesion.
+                    <br><strong>My Notes:</strong> Most organic feeling. The setae retract when done. Still weird seeing your skin change texture.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PYR: "Magnetic Attraction"</div>
+                    DR 12 | For metal surfaces—create strong magnetic field. Limited application but very strong.
+                    <br><strong>My Notes:</strong> Only works on ferrous metals. But when it works, you're basically welded to the surface.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHORA: "Gravity Rotation"</div>
+                    DR 14 | Rotate your personal gravity to make wall/ceiling the new "down."
+                    <br><strong>My Notes:</strong> Disorienting but allows normal walking on any surface. Your stomach really hates this one.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PNEUMA: "Surface Agreement"</div>
+                    DR 12 | Convince surface to "want" to hold you. Works on any material.
+                    <br><strong>My Notes:</strong> Weirdly poetic. The wall becomes cooperative. Can work on water if you're persuasive enough.
+                </div>
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Base Mechanics</div>
+                <strong>Weight Support:</strong> Can support your body weight + ~50 lbs of gear<br>
+                <strong>Movement Speed:</strong> Climb at half normal walking speed<br>
+                <strong>Duration:</strong> d6 hours or until dispelled<br>
+                <strong>Surface Types:</strong> Method dependent, some work better on specific materials<br>
+                <strong>Backlash Risk:</strong> Moderate—can get stuck or fall if concentration breaks
+            </div>
+        </div>
+
+        <!-- SPELL 11 -->
+        <div class="spell">
+            <div class="spell-title">The Translator</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="modular-badge">MODULAR</span>
+                <span class="expertise-badge">LANGUAGE</span>
+                <span class="difficulty diff-1">DR 12-14</span>
+            </div>
+            
+            <div class="spell-description">
+                Understand or speak a language you don't know. Essential when Reality Scars spit out artifacts with unknown script, when dealing with international practitioners, or when the demon you accidentally summoned only speaks Sumerian.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY HIGH RITUAL METHOD:</strong> I inscribe the target language's name (or a sample of it) on my tongue with edible gold leaf. I speak the Babel Reversal while the gold dissolves. For the duration, I can understand and speak that language as if native. Tastes weird though.
+            </div>
+            
+            <div class="modular-section">
+                <div class="modular-title">⚙ Modular Applications</div>
+                
+                <div class="variant">
+                    <div class="variant-name">PNEUMA: "Universal Comprehension"</div>
+                    DR 12 | Understand intent behind words, regardless of language.
+                    <br><strong>My Notes:</strong> Doesn't let you speak it back, but you get the meaning. Works on non-verbal communication too.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHRONOS: "Language Echo"</div>
+                    DR 14 | Temporarily access knowledge of language from anyone who ever spoke it.
+                    <br><strong>My Notes:</strong> For dead languages. Pulling linguistic knowledge from the past. Headache-inducing but accurate.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">VITA: "Genetic Tongue"</div>
+                    DR 12 | Temporarily reshape your vocal apparatus to produce the sounds.
+                    <br><strong>My Notes:</strong> Physical. Lets you actually speak languages with sounds humans normally can't make. Throat hurts after.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">ALCHEMY: "Rosetta Mind"</div>
+                    DR 14 | For written text—transmute the symbols into your native language in your perception.
+                    <br><strong>My Notes:</strong> Only works on writing, not speech. But incredibly useful for documents. The text looks different to you.
+                </div>
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Base Mechanics</div>
+                <strong>Languages:</strong> One language per casting<br>
+                <strong>Proficiency:</strong> Conversational level, not scholarly<br>
+                <strong>Duration:</strong> d6 hours<br>
+                <strong>Limitation:</strong> Must have sample of language or know its name<br>
+                <strong>Backlash Risk:</strong> Temporary aphasia if fumbled
+            </div>
+        </div>
+
+        <!-- SPELL 12 -->
+        <div class="spell">
+            <div class="spell-title">Temperature Control</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="modular-badge">MODULAR</span>
+                <span class="expertise-badge">ENVIRONMENT</span>
+                <span class="difficulty diff-1">DR 10-12</span>
+            </div>
+            
+            <div class="spell-description">
+                Make something warmer or cooler. Sounds simple, but incredibly versatile. Keep warm in abandoned buildings during winter, cool down overheating Reality Scar equipment, freeze locks to shatter them, heat metal to bend it. One of those spells that seems basic until you realize how often temperature matters.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY HIGH RITUAL METHOD:</strong> I use a matched pair of stones—one from a volcano, one from a glacier. I hold the appropriate stone while visualizing the desired temperature change and speaking the Formula of Thermal Adjustment. The target's temperature shifts toward the stone I'm holding.
+            </div>
+            
+            <div class="modular-section">
+                <div class="modular-title">⚙ Modular Applications</div>
+                
+                <div class="variant">
+                    <div class="variant-name">PYR: "Direct Thermal Manipulation"</div>
+                    DR 10 | Simply add or remove heat energy. Most straightforward.
+                    <br><strong>My Notes:</strong> Clean, simple, effective. Can achieve extreme temperatures with enough effort (+2 DR per extreme).
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">ALCHEMY: "Molecular Excitation/Suppression"</div>
+                    DR 12 | Speed up or slow down molecular motion. More controlled.
+                    <br><strong>My Notes:</strong> Precise. Good for delicate work where you need exact temperatures. Slower to take effect.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">VITA: "Metabolic Heat"</div>
+                    DR 10 | Only for living things—adjust their body temperature or metabolism.
+                    <br><strong>My Notes:</strong> Used this to survive hypothermia once. Also to induce fever in a guard who needed a sick day. Useful.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHORA: "Thermal Transfer"</div>
+                    DR 12 | Move heat from one location to another through space.
+                    <br><strong>My Notes:</strong> Steal warmth from a furnace across the building. Or dump excess heat into a snowbank. Creative applications.
+                </div>
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Base Mechanics</div>
+                <strong>Temperature Change:</strong> ±50°F from ambient at base DR<br>
+                <strong>Extreme Temps:</strong> +2 DR for every additional ±50°F<br>
+                <strong>Target Size:</strong> Person-sized at base, larger targets +2 DR per size category<br>
+                <strong>Duration:</strong> Permanent change until natural cooling/heating<br>
+                <strong>Backlash Risk:</strong> Low unless attempting extreme temperatures
+            </div>
+        </div>
+
+        <!-- SPELL 13 -->
+        <div class="spell">
+            <div class="spell-title">The Alarm</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="modular-badge">MODULAR</span>
+                <span class="expertise-badge">SECURITY</span>
+                <span class="difficulty diff-1">DR 10</span>
+            </div>
+            
+            <div class="spell-description">
+                Set a magical tripwire that alerts you when triggered. Invaluable for securing my Sanctuary, warning me when someone's tampering with my Reality Scar stash, or knowing when the Man's agents are getting too close to my operations.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY HIGH RITUAL METHOD:</strong> I create a closed circle of salt around what I'm protecting (or across a threshold for area protection). I bind a silver bell to the circle with a spoken command. When the circle is broken, the bell rings—no matter where I am. I hear it in my mind.
+            </div>
+            
+            <div class="modular-section">
+                <div class="modular-title">⚙ Modular Applications</div>
+                
+                <div class="variant">
+                    <div class="variant-name">PNEUMA: "Mental Alert"</div>
+                    DR 10 | Direct notification in your mind. Immediate and clear.
+                    <br><strong>My Notes:</strong> Most reliable. Can include information about who/what triggered it. Sometimes startling when it goes off.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">ALCHEMY: "Physical Alarm"</div>
+                    DR 10 | Actual sound/light/smell when triggered. Can be heard by others.
+                    <br><strong>My Notes:</strong> Good for deterrent effect. Bad for stealth. Once made one that emitted skunk smell. Regretted that.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">VITA: "Guardian Creature"</div>
+                    DR 12 | Bind a small creature to alert you—mouse, bird, insect.
+                    <br><strong>My Notes:</strong> Living alarm. Can get more info from it. Requires feeding and care though. More a familiar than alarm.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHRONOS: "Temporal Echo"</div>
+                    DR 12 | Records trigger event, you experience it in fast-forward later.
+                    <br><strong>My Notes:</strong> Not real-time, but gives you full replay of what triggered it. Like magical security footage.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHORA: "Distance Indifferent"</div>
+                    DR 10 | Alert functions across any distance, even dimensions.
+                    <br><strong>My Notes:</strong> Used this for Sanctuary while traveling. Got alert in Nevada about intrusion in my place in Oregon. Very useful.
+                </div>
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Base Mechanics</div>
+                <strong>Coverage:</strong> 10 foot radius or single object/doorway<br>
+                <strong>Trigger Sensitivity:</strong> Can set specific conditions (only humans, only specific person, etc.) +2 DR per condition<br>
+                <strong>Duration:</strong> Until triggered or 1 week, whichever comes first<br>
+                <strong>False Positives:</strong> Simple alarms can't distinguish friend from foe<br>
+                <strong>Backlash Risk:</strong> Minimal
+            </div>
+        </div>
+
+        <!-- SPELL 14 -->
+        <div class="spell">
+            <div class="spell-title">Purification</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="modular-badge">MODULAR</span>
+                <span class="expertise-badge">CLEANSING</span>
+                <span class="difficulty diff-1">DR 12-14</span>
+            </div>
+            
+            <div class="spell-description">
+                Remove contamination, corruption, or unwanted influences. Water tainted with Reality Scar runoff, food potentially poisoned by rivals, myself after exposure to Things That Should Not Be—all require cleansing. Also useful for ritual preparation and clearing spaces of lingering magical effects.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY HIGH RITUAL METHOD:</strong> I prepare purified water by boiling it with salt, sage, and silver. I use this to wash the contaminated subject while reciting the Litany of Cleansing. The water turns black as it draws out impurities. I've seen it pull some truly horrifying things out of Reality Scar fragments.
+            </div>
+            
+            <div class="modular-section">
+                <div class="modular-title">⚙ Modular Applications</div>
+                
+                <div class="variant">
+                    <div class="variant-name">ALCHEMY: "Molecular Filtration"</div>
+                    DR 12 | Remove physical contaminants at molecular level.
+                    <br><strong>My Notes:</strong> Best for water, food, air. Makes things chemically pure. Doesn't work on magical corruption.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">VITA: "Biological Cleansing"</div>
+                    DR 12 | Purge disease, toxins, parasites from living tissue.
+                    <br><strong>My Notes:</strong> Painful but effective. Your body forcibly expels everything foreign. Bring a bucket.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PNEUMA: "Spiritual Purification"</div>
+                    DR 14 | Remove curses, possessions, unwanted spiritual attachments.
+                    <br><strong>My Notes:</strong> Higher DR because spirits resist eviction. Sometimes requires multiple castings. Exhausting.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHRONOS: "Temporal Reset"</div>
+                    DR 14 | Restore object/person to state before contamination.
+                    <br><strong>My Notes:</strong> Elegant but requires knowing exact moment of contamination. Works retroactively which is weird.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PYR: "Purifying Flame"</div>
+                    DR 10 | Burn away impurities. Destructive but thorough.
+                    <br><strong>My Notes:</strong> Nuclear option. Removes contamination by destroying contaminated portions. Use carefully on things you want to keep.
+                </div>
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Base Mechanics</div>
+                <strong>Contamination Severity:</strong> Mild DR 12, Moderate DR 14, Severe DR 16+<br>
+                <strong>Target Size:</strong> Person-sized at base, larger +2 DR<br>
+                <strong>Thoroughness:</strong> May require multiple castings for deep contamination<br>
+                <strong>Duration:</strong> Permanent cleaning, but can be re-contaminated<br>
+                <strong>Backlash Risk:</strong> Moderate—contamination can transfer to caster
+            </div>
+            
+            <div class="warning">
+                <div class="warning-title">⚠ Personal Experience:</div>
+                I once tried to purify a Reality Scar fragment that was leaking dimensional instability. The spell worked—by completely annihilating the fragment. Turns out some things ARE the contamination. Lost a valuable specimen. Lesson learned.
+            </div>
+        </div>
+
+        <!-- SPELL 15 -->
+        <div class="spell">
+            <div class="spell-title">The Decoy</div>
+            <div class="spell-meta">
+                <span class="expertise-badge">EXPERTISE 1</span>
+                <span class="modular-badge">MODULAR</span>
+                <span class="expertise-badge">DECEPTION</span>
+                <span class="difficulty diff-1">DR 12-16</span>
+            </div>
+            
+            <div class="spell-description">
+                Create a false copy of something to fool observers. Swap genuine Reality Scar fragments for fakes when selling to untrustworthy buyers, create decoy of myself to draw pursuit, plant false evidence, etc. The art of the con, magically enhanced.
+            </div>
+            
+            <div class="ritual-note">
+                <strong>MY HIGH RITUAL METHOD:</strong> I create a wax model of the object I'm copying (rough similarity is enough). I place it beside the original and speak the Formula of Mimicry while passing smoke from burning laurel leaves between them. The wax transforms to appear identical to the original. Close inspection reveals the deception, but casual observation? Perfect.
+            </div>
+            
+            <div class="modular-section">
+                <div class="modular-title">⚙ Modular Applications</div>
+                
+                <div class="variant">
+                    <div class="variant-name">ALCHEMY: "Transmutation Copy"</div>
+                    DR 14 | Actually transform one material into another. Physical copy.
+                    <br><strong>My Notes:</strong> Most convincing physically. Weight, texture, even some properties match. Doesn't copy magical properties.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">PNEUMA: "Illusory Double"</div>
+                    DR 12 | Make observers perceive the decoy as the real thing.
+                    <br><strong>My Notes:</strong> Quickest method. The decoy is obviously fake to cameras/instruments but fools human eyes.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">VITA: "Living Duplicate" (self only)</div>
+                    DR 16 | Create actual biological copy of yourself. Temporary and mindless.
+                    <br><strong>My Notes:</strong> Deeply unsettling. It's YOU but hollow. Moves like you, looks exactly like you. Dies at dawn. Never doing this again.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHRONOS: "Echo Copy"</div>
+                    DR 14 | Create copy from object's past state. Fades back to nothing.
+                    <br><strong>My Notes:</strong> Temporary but perfect. Literally pulling a version of the object from when it existed. Gives me headaches.
+                </div>
+                
+                <div class="variant">
+                    <div class="variant-name">CHORA: "Spatial Mirror"</div>
+                    DR 12 | Original appears in two places. Both are "real" until observed closely.
+                    <br><strong>My Notes:</strong> Quantum weirdness. The copy isn't a copy, it's the same object in two locations until someone checks.
+                </div>
+            </div>
+            
+            <div class="mechanics">
+                <div class="mechanics-title">⚙ Base Mechanics</div>
+                <strong>Accuracy:</strong> Foolproof to casual observation, detailed examination may reveal fraud<br>
+                <strong>Duration:</strong> Until dawn or until destroyed/dispelled<br>
+                <strong>Complexity:</strong> Simple objects DR 12, Complex objects +2 DR, Living things +4 DR<br>
+                <strong>Multiple Copies:</strong> +2 DR per additional copy<br>
+                <strong>Backlash Risk:</strong> Moderate—can create unintended copies or swap real for fake accidentally
+            </div>
+        </div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <!-- CLOSING NOTES -->
+        
+        <div class="section-header">/// Volume II: Closing Thoughts ///</div>
+        
+        <div class="philosophy-box">
+            <strong>On Versatility Over Specialization:</strong><br><br>
+            
+            These fifteen spells represent what I consider the essential toolkit for a Reality Scar hunter who practices High Ritual. But here's the thing—they're templates, not commandments.
+            <br><br>
+            I've shown you how I do it: elaborate circles, precise timing, expensive components, hours of preparation. Some Folk practitioner is probably reading this and thinking "I could do that with a chicken bone and some spit in five minutes." And you know what? They're probably right. Their version would be messier, less predictable, more likely to explode in their face—but it would work.
+            <br><br>
+            The Arts don't care about your methodology. They care about your Will and your knowledge. The ritual forms are just focusing mechanisms. If you can achieve the same mental state with drums and dancing that I achieve with geometric precision, more power to you. We all end up in the same place: trying to tear a hole in consensus reality large enough to matter.
+            <br><br>
+            I present High Ritual methods because they're what I know, what works for me. But I've documented alternatives where I've encountered them or theorized them. Use what works for YOU. Adapt. Improvise. Mix paradigms if that's what gets results.
+            <br><br>
+            Just remember: the Man doesn't care HOW you challenge their reality. They'll come for you regardless of whether you're a High Ritualist with a laboratory or a Chaos practitioner with a bag of mushrooms. So you might as well do it your way.
+            <br><br>
+            <em>— Fjord the Hermit</em><br>
+            <em>Who is possibly becoming less rigid in his old age</em><br>
+            <em>But don't tell anyone</em>
+        </div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 20px; border: 2px solid #666; background: #000;">
+            <div style="font-family: 'Special Elite', monospace; font-size: 1.2em; color: #fff; margin-bottom: 10px;">
+                ⚠ FJORD'S GRIMOIRE - VOLUME II ⚠
+            </div>
+            <div style="font-size: 0.9em; color: #888;">
+                15 Foundational Spells with Modular Approaches<br>
+                High Ritual Primary Methods with Alternative Paradigms Noted<br>
+                <br>
+                "There are many paths to the Crown."<br>
+                <br>
+                <em>Död Magiker Compatible</em><br>
+                <em>Reality Scar Hunter's Edition</em>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
