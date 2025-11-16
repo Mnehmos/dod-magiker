@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fjord's Grimoire - Complete Mastery Part 2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&family=Crimson+Text:ital@1&display=swap');
+        
+        body {
+            background: #0a0a0a;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Courier Prime', monospace;
+            color: #d4d4d4;
+        }
+        
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            border: 3px solid #666;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+        }
+        
+        .title-page {
+            text-align: center;
+            border-bottom: 3px double #888;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-family: 'Special Elite', monospace;
+            font-size: 3em;
+            color: #fff;
+            text-transform: uppercase;
+            margin: 0 0 15px 0;
+            letter-spacing: 6px;
+            text-shadow: 3px 3px 0px #000;
+        }
+        
+        .subtitle {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 1.4em;
+            color: #aaa;
+            margin: 10px 0;
+        }
+        
+        .art-section {
+            margin: 50px 0;
+            page-break-before: always;
+        }
+        
+        .art-header {
+            font-family: 'Special Elite', monospace;
+            font-size: 2.2em;
+            color: #fff;
+            text-transform: uppercase;
+            margin: 30px 0 20px 0;
+            padding: 15px;
+            border: 3px double #888;
+            text-align: center;
+            letter-spacing: 4px;
+            background: #000;
+        }
+        
+        .art-alchemy { border-color: #fb4; background: linear-gradient(135deg, #2a2a0a 0%, #0a0a0a 100%); }
+        .art-chora { border-color: #4bf; background: linear-gradient(135deg, #0a1a2a 0%, #0a0a0a 100%); }
+        .art-chronos { border-color: #f8f; background: linear-gradient(135deg, #2a0a2a 0%, #0a0a0a 100%); }
+        
+        .difficulty-tier {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid;
+        }
+        
+        .tier-normal { border-left-color: #4a8; }
+        .tier-hard { border-left-color: #ea4; }
+        .tier-veryhard { border-left-color: #e84; }
+        .tier-impossible { border-left-color: #e44; }
+        .tier-reality { border-left-color: #a4f; }
+        
+        .tier-label {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.1em;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        
+        .spell {
+            background: #0a0a0a;
+            border: 2px solid #444;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .spell-title {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .spell-stats {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dotted #444;
+        }
+        
+        .dr-badge {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 4px 12px;
+            margin-right: 10px;
+            border: 1px solid;
+            font-family: 'Special Elite', monospace;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .dr-12 { border-color: #4a8; color: #4a8; }
+        .dr-14 { border-color: #ea4; color: #ea4; }
+        .dr-18 { border-color: #e84; color: #e84; }
+        .dr-22 { border-color: #e44; color: #e44; }
+        .dr-30 { border-color: #a4f; color: #a4f; }
+        
+        .spell-description {
+            margin: 15px 0;
+            line-height: 1.8;
+            color: #d4d4d4;
+        }
+        
+        .ritual-note {
+            background: #1a1a1a;
+            border-left: 3px solid #666;
+            padding: 12px 15px;
+            margin: 12px 0;
+            font-style: italic;
+            font-size: 0.95em;
+            color: #aaa;
+        }
+        
+        .mechanics {
+            background: #000;
+            border: 1px solid #555;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        
+        .mechanics-title {
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+        
+        .warning {
+            background: #3a1a1a;
+            border: 2px solid #f44;
+            padding: 12px;
+            margin: 15px 0;
+            color: #faa;
+        }
+        
+        .warning-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .component {
+            color: #8f8;
+            font-weight: bold;
+        }
+        
+        .divider {
+            text-align: center;
+            margin: 40px 0;
+            color: #666;
+            font-size: 1.8em;
+        }
+        
+        .note {
+            background: #1a1a0a;
+            border-left: 3px solid #aa8;
+            padding: 15px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #cca;
+            font-size: 0.95em;
+        }
+        
+        .conclusion {
+            background: #0a0a0a;
+            border: 3px double #888;
+            padding: 30px;
+            margin: 40px 0;
+            font-size: 1.05em;
+            line-height: 1.9;
+        }
+        
+        ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+        
+        @media print {
+            .art-section { page-break-before: always; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="title-page">
+            <h1>THE COMPLETE MASTERY</h1>
+            <div class="subtitle">Part II: Matter, Space, and Time</div>
+            <div class="subtitle">Alchemy • Chora • Chronos</div>
+            <div style="font-family: 'Special Elite', monospace; font-size: 1.1em; color: #888; margin-top: 30px; letter-spacing: 2px;">
+                — FJORD THE HERMIT —
+            </div>
+            <div style="font-size: 0.9em; color: #666; margin-top: 15px;">
+                High Ritual Practice • Reality Scar Hunter
+            </div>
+        </div>
+        
+        <div class="note">
+            <strong>Volume II - Introduction:</strong><br><br>
+            This volume completes the set with the final three Arts: Alchemy, Chora, and Chronos. These are, in many ways, the most fundamental—controlling matter, space, and time respectively. They're also the most philosophically dangerous.
+            <br><br>
+            Pneuma, Pyr, and Vita (covered in Part I) deal with things that have some inherent agency or vitality: minds, spirits, energy, life. But Alchemy, Chora, and Chronos deal with the substrate of reality itself. When you manipulate these, you're not just affecting beings—you're affecting the stage they perform on.
+            <br><br>
+            The consequences are proportionally more severe.
+            <br><br>
+            <em>— F.T.H.</em>
+        </div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <!-- ALCHEMY SECTION -->
+        <div class="art-section">
+            <div class="art-header art-alchemy">/// ALCHEMY ///</div>
+            <div class="note">
+                <strong>The Art of Matter and Transformation</strong><br><br>
+                Alchemy is control over the physical world—not living tissue, but the base matter of reality. Stone, metal, glass, air, water. Transmutation, manipulation, creation and destruction of physical substance. This is the Art that built the Philosopher's Stone, that turns lead to gold, that makes the impossible tangible.
+                <br><br>
+                Working with Alchemy taught me that matter has memory. Every substance "remembers" what it was, what it's been, what it could be. When you transmute something, you're not just changing its form—you're rewriting its history.
+            </div>
+
+            <!-- NORMAL - DR 12 -->
+            <div class="difficulty-tier tier-normal">
+                <div class="tier-label">⚗ NORMAL DIFFICULTY (DR 12) ⚗</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Material Softening</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-12">DR 12</span>
+                        <span style="color: #888;">ALCHEMY +1 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Make solid matter temporarily soft and pliable—stone becomes clay-like, metal bends like taffy, glass molds like wax. Perfect for bypassing barriers, creating handholds in walls, or reshaping locks. The material remembers its original form and returns to it after the spell ends.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I trace the molecular structure I want to disrupt on the surface with chalk mixed with oil. While touching the material, I speak the Formula of Dissolution and visualize the atomic bonds loosening. The substance becomes malleable under my hands—I can push my fingers into stone like it's wet clay.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Affected Area:</strong> Touch-based, roughly 1 square foot per casting<br>
+                        <strong>Duration:</strong> d6 minutes<br>
+                        <strong>Hardness:</strong> Reduces material to clay-like consistency<br>
+                        <strong>Reversion:</strong> Material snaps back to original hardness when spell ends—anything trapped inside is stuck<br>
+                        <strong>Components:</strong> Chalk-oil mixture, touch, Formula of Dissolution<br>
+                        <strong>Backlash:</strong> Minimal—material can harden while you're touching it, trapping fingers
+                    </div>
+                    
+                    <div class="note" style="background: #1a1a1a; border-left-color: #888; color: #ccc; font-style: normal; font-size: 0.9em;">
+                        <strong>Personal Experience:</strong> I once softened a stone wall to create a hiding spot, then forgot about the timer. The wall hardened with my backpack still halfway embedded in it. Took me an hour to cut it free. The stone had perfectly molded around every item inside. Looked like a fossil.
+                    </div>
+                </div>
+            </div>
+
+            <!-- HARD - DR 14 -->
+            <div class="difficulty-tier tier-hard">
+                <div class="tier-label">⚗ HARD DIFFICULTY (DR 14) ⚗</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Minor Transmutation</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-14">DR 14</span>
+                        <span style="color: #888;">ALCHEMY +2 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Transform one non-living substance into another of similar complexity—iron to copper, granite to marble, water to wine. The transformation is real at the molecular level but requires ongoing concentration. I've used this to create fake Reality Scar fragments for dishonest buyers.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I must have a sample of both materials—what I'm starting with and what I want. I create a transmutation circle with powdered samples of the target material. Placing the source material in the center, I chant the Periodic Table backwards (yes, really—I'm High Ritual, we do weird things) while visualizing the atomic restructuring. The change ripples outward from my hands.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Mass Limit:</strong> Up to 10 lbs of material at base DR<br>
+                        <strong>Similarity:</strong> Must transmute to material of similar complexity (iron→copper yes, iron→gold +4 DR)<br>
+                        <strong>Duration:</strong> Permanent, but transmuted material is slightly unstable<br>
+                        <strong>Quality:</strong> Transmuted material is real but expert analysis can detect it's "wrong"<br>
+                        <strong>Components:</strong> Sample of both materials, transmutation circle, backwards Periodic Table<br>
+                        <strong>Backlash:</strong> Moderate—you can transmute yourself partially. I had copper fingernails for a week.
+                    </div>
+                    
+                    <div class="note" style="background: #1a1a1a; border-left-color: #888; color: #ccc; font-style: normal; font-size: 0.9em;">
+                        <strong>On Ethics:</strong> Yes, I've used this to create fake Reality Scar fragments. Yes, that makes me a fraud. But the Man's corporate buyers were going to weaponize the real ones. I'd rather they waste their research budget on my clever fakes. The transmuted fragments degrade into ordinary matter after a few months. By the time they realize, I'm long gone.
+                    </div>
+                </div>
+            </div>
+
+            <!-- VERY HARD - DR 18 -->
+            <div class="difficulty-tier tier-veryhard">
+                <div class="tier-label">⚗ VERY HARD DIFFICULTY (DR 18) ⚗</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Disintegration</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-18">DR 18</span>
+                        <span style="color: #888;">ALCHEMY +3 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Cause matter to simply cease to exist on a molecular level. Atomic bonds break, molecules disperse into constituent atoms, atoms into subatomic particles, and then... nothing. A door, a wall, a lock, a body—all can be unmade. Leaves no trace except a faint ozone smell and a void where something used to be.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I focus on the target while holding a vial of universal solvent (which I make from aqua regia and Reality Scar fragments—highly dangerous to prepare). I pour a single drop onto or toward the target while speaking the Equation of Unbeing. The disintegration begins at the point of contact and spreads. It's silent. Matter just... stops being there. The void expands until I will it to stop or the spell ends.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Range:</strong> Must apply solvent drop to target (thrown range ~20 feet)<br>
+                        <strong>Spread:</strong> Disintegrates at rate of ~1 cubic foot per round<br>
+                        <strong>Control:</strong> Must concentrate to control spread—if concentration breaks, it continues randomly<br>
+                        <strong>Maximum:</strong> Can disintegrate up to d6 cubic feet before automatic stop<br>
+                        <strong>Limitation:</strong> Works on non-living matter only (use Vita for living tissue)<br>
+                        <strong>Components:</strong> <span class="component">Universal solvent</span> (aqua regia + Reality Scar fragments), Equation of Unbeing<br>
+                        <strong>Backlash:</strong> HIGH. Lost control once and disintegrated part of my floor. And my foot. Had to regrow toes.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ Runaway Reaction Warning:</div>
+                        If you lose concentration, the disintegration CONTINUES on its own, following natural fault lines and weaknesses in matter. I once meant to disintegrate a lock and instead erased an entire door frame, part of the wall, and kept going into the foundation before I could wrestle control back.
+                        <br><br>
+                        The universal solvent is also incredibly dangerous to prepare. Aqua regia is bad enough—mix of nitric and hydrochloric acid that dissolves gold. Adding Reality Scar fragments to it creates something that wants to dissolve... everything. I store it in a crystalline matrix because it eats through glass given enough time.
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAMN NEAR IMPOSSIBLE - DR 22 -->
+            <div class="difficulty-tier tier-impossible">
+                <div class="tier-label">⚗ DAMN NEAR IMPOSSIBLE (DR 22) ⚗</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Philosopher's Stone (Lesser)</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-22">DR 22</span>
+                        <span style="color: #888;">ALCHEMY +4 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Create a small Philosopher's Stone—not the legendary perfect version, but a working approximation. This thumb-sized crystalline matrix can transmute base metals to gold (slowly), purify poisons, and serve as a near-infinite power source for Alchemical workings. It's unstable and will eventually decay, but while it lasts, it's the pinnacle of material magic.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> This took me six months of preparation. The process requires the classical alchemical stages—Calcination, Dissolution, Separation, Conjunction, Fermentation, Distillation, Coagulation. I worked with mercury, sulfur, salt, and exotic materials including <span class="component">dragon's blood resin</span>, <span class="component">meteor fragments</span>, and <span class="component">distilled quintessence</span>. The final step—Coagulation—required channeling immense energy into the prima materia while speaking the Grand Formula. The Stone crystallized from the mixture, pulsing with inner light.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Preparation:</strong> 6 months minimum, seven classical stages<br>
+                        <strong>Components:</strong> <span class="component">Mercury, sulfur, salt, dragon's blood, meteor fragments, quintessence</span>, massive laboratory setup<br>
+                        <strong>Cost:</strong> Bankrupting. I spent most of my wealth on components. Sacrificed 12 HP in the final stage.<br>
+                        <strong>Capabilities:</strong>
+                        <ul>
+                            <li>Transmute 1 lb base metal to gold per day (actual gold, perfect)</li>
+                            <li>Purify any poison or toxin by contact</li>
+                            <li>Reduce DR of all Alchemy spells by -4 while held</li>
+                            <li>Acts as Exotic Component for any Alchemy working</li>
+                        </ul>
+                        <strong>Decay:</strong> Lesser Stone lasts d6 months before destabilizing<br>
+                        <strong>Danger:</strong> When it decays, releases tremendous energy—must be contained<br>
+                        <strong>Backlash:</strong> EXTREME. If creation fumbles, the laboratory explodes. Alchemically. Mercury vapor everywhere.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ Addiction Warning:</div>
+                        I made one. It lasted four months. Those four months were incredible—I had unlimited wealth, perfect control over matter, and the Stone itself seemed to whisper secrets to me. When it decayed, the withdrawal was worse than any drug. I spent a week in bed, feeling like my bones were turning to lead.
+                        <br><br>
+                        The temptation to make another is constant. I have the notes. I have the knowledge. But I remember what it cost me—financially, physically, spiritually. The Stone demands everything you have. And it always crumbles to dust in the end.
+                        <br><br>
+                        The classical alchemists said the Philosopher's Stone was a metaphor for spiritual enlightenment. They were lying. It's real. And it's terrible. And it's beautiful. And I want it back so badly my hands shake when I think about it.
+                    </div>
+                </div>
+            </div>
+
+            <!-- REALITY BENDING - DR 30 -->
+            <div class="difficulty-tier tier-reality">
+                <div class="tier-label">⚗ REALITY BENDING (DR 30) ⚗</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Atomic Genesis</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-30">DR 30</span>
+                        <span style="color: #888;">ALCHEMY +6 Required | Reality-Warping</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Create matter from nothing. Not transmutation—CREATION. Generate atoms from pure energy, assembling them into whatever molecular structure you desire. I've done this once, creating a baseball-sized diamond from literally nothing but willpower and mathematics. It violated thermodynamics, conservation of mass-energy, and several other fundamental laws. Reality noticed. Reality was NOT pleased.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> Required a particle accelerator's worth of preparation—I had to rent time at a university physics lab (under false pretenses). I created a perfect vacuum chamber and lined it with equations describing the exact atomic structure I wanted. At the moment of casting, I stood in a circle of <span class="component">antimatter-exposed materials</span> (terrifyingly dangerous to acquire) and channeled every joule of energy I could access—electrical, thermal, my own life force—into the vacuum. I spoke the Equations of Creation, describing the atoms I needed into existence through pure mathematics made manifest.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Preparation:</strong> Months of calculation and preparation, access to physics equipment<br>
+                        <strong>Energy Source:</strong> Requires massive energy input (particle accelerator or equivalent)<br>
+                        <strong>Creation Limit:</strong> At DR 30, can create ~1 lb of simple matter (carbon, silicon, etc.)<br>
+                        <strong>Complexity:</strong> Complex molecules +2 DR per level of complexity<br>
+                        <strong>Components:</strong> <span class="component">Perfect vacuum, antimatter-exposed materials</span>, complete molecular blueprints, massive energy<br>
+                        <strong>Cost:</strong> I sacrificed 18 HP and burned 6 Fate points. Nearly died from energy drain.<br>
+                        <strong>Duration:</strong> Matter is permanent and REAL<br>
+                        <strong>Backlash:</strong> CATASTROPHIC. If fumbled, you're converted to energy instead of creating matter. E=mc². You become a small nuclear explosion.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ REALITY VIOLATION WARNING:</div>
+                        The diamond I created exists. It's real. It's perfect. Atomic analysis shows it's indistinguishable from natural diamond. But it SHOULDN'T exist. I created matter that wasn't there before. The universe's books don't balance anymore.
+                        <br><br>
+                        Since then, I've noticed... glitches. Small ones. Objects appearing in places I didn't put them. Missing things showing up. Matter seems more... fluid... around me. Like reality's accounting system is trying to correct for the diamond by randomly adjusting other matter nearby.
+                        <br><br>
+                        Last week, my coffee mug disappeared while I was drinking from it. Just... gone. Mid-sip. Two days later, it reappeared on a shelf I haven't used in months, full of cold coffee.
+                        <br><br>
+                        I keep the diamond in a lead box wrapped in iron chains in the deepest part of my Sanctuary. It's too dangerous to sell—I'm convinced that introducing it into the economy would cause some kind of cascade effect. Sometimes I hear it humming. Diamonds don't hum.
+                        <br><br>
+                        I violated a fundamental law: matter cannot be created or destroyed. I did it anyway. And somewhere, in some cosmic ledger, there's a debt that will eventually come due. I just hope I'm not around when Reality decides to collect.
+                        <br><br>
+                        I weigh myself every morning. I'm getting lighter. Slowly. Losing about a gram a month. The universe is taking its pound of flesh. Literally.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <!-- CHORA SECTION -->
+        <div class="art-section">
+            <div class="art-header art-chora">/// CHORA ///</div>
+            <div class="note">
+                <strong>The Art of Space and Distance</strong><br><br>
+                Chora is the manipulation of space itself—not traveling through it, but bending, folding, extending, compressing it. Distances are suggestions. Locations are negotiable. The universe is a map that can be redrawn. This is the Art that makes teleportation possible, that creates pocket dimensions, that lets you touch something on the other side of the world.
+                <br><br>
+                Working with Chora taught me that space is not empty. It's full of... something. A substrate. When you bend space, you're pushing against that substrate. And sometimes, it pushes back.
+            </div>
+
+            <!-- NORMAL - DR 12 -->
+            <div class="difficulty-tier tier-normal">
+                <div class="tier-label">📍 NORMAL DIFFICULTY (DR 12) 📍</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Distance Sense</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-12">DR 12</span>
+                        <span style="color: #888;">CHORA +1 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Intuitively know the exact distance between yourself and any object or location you can visualize. Essential for planning teleportation, estimating ranges, and navigation. I use this constantly—it's like having a built-in GPS that works even when satellites can't see me.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I close my eyes and visualize both points—where I am and where the target is. I speak the Formula of Measurement while extending my spatial awareness. The distance appears in my mind as a number, but also as a physical sensation—I can FEEL the space between us like a taut string.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Range:</strong> Unlimited, but requires clear visualization of target<br>
+                        <strong>Accuracy:</strong> Exact to within inches<br>
+                        <strong>Information:</strong> Provides straight-line distance, not accounting for obstacles<br>
+                        <strong>Multiple Targets:</strong> Can sense distance to d6 objects simultaneously<br>
+                        <strong>Duration:</strong> Instant reading, can maintain awareness for d6 minutes<br>
+                        <strong>Components:</strong> Visualization, Formula of Measurement<br>
+                        <strong>Backlash:</strong> Minimal—can cause spatial disorientation, feeling like the ground is tilted
+                    </div>
+                    
+                    <div class="note" style="background: #1a1a1a; border-left-color: #888; color: #ccc; font-style: normal; font-size: 0.9em;">
+                        <strong>Practical Application:</strong> This spell has saved my life more than any other. Being able to instantly know "that guard is exactly 47 feet away" or "the exit is 234 feet in that direction" is invaluable. It's also deeply unsettling at first—your brain isn't wired to consciously know exact distances. Took me weeks to stop feeling nauseous every time I used it.
+                    </div>
+                </div>
+            </div>
+
+            <!-- HARD - DR 14 -->
+            <div class="difficulty-tier tier-hard">
+                <div class="tier-label">📍 HARD DIFFICULTY (DR 14) 📍</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Remote Reach</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-14">DR 14</span>
+                        <span style="color: #888;">CHORA +2 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Extend your reach through folded space to touch/manipulate objects at a distance. Your hand doesn't move through the intervening space—it simply appears where you need it. I've stolen keys from guard belts, flipped switches in locked rooms, and retrieved Reality Scar fragments from across chasms.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I visualize the space between my hand and the target as being compressed into nothing. I trace a doorway shape in the air with my finger while speaking the Folding Phrase. A shimmer appears—like heat distortion—and when I reach through it, my hand emerges at the target location. I can see my hand there in my mind's eye even though physically it's still attached to my arm here.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Range:</strong> Line of sight, up to 100 feet<br>
+                        <strong>What Can Pass:</strong> Your hand/arm only, cannot put your whole body through<br>
+                        <strong>Interaction:</strong> Can manipulate objects as if touching them normally<br>
+                        <strong>Strength:</strong> Normal Strength applies at range<br>
+                        <strong>Vulnerability:</strong> Your extended hand can be injured/grabbed at the remote location<br>
+                        <strong>Duration:</strong> Up to d6 minutes or until you withdraw<br>
+                        <strong>Components:</strong> Line of sight, doorway gesture, Folding Phrase<br>
+                        <strong>Backlash:</strong> Moderate—if the fold collapses while your hand is extended, it gets... misplaced. Took me a day to find my hand once. It was fine, just in the wrong spatial relationship to my arm.
+                    </div>
+                    
+                    <div class="note" style="background: #1a1a1a; border-left-color: #888; color: #ccc; font-style: normal; font-size: 0.9em;">
+                        <strong>The Hand Incident:</strong> The spell collapsed while my hand was through. My hand was still attached—blood flow, nerves, everything worked fine—but spatially it was three feet to the left of where it should be. I could see it floating in mid-air. Moving my arm moved the hand, but not in the direction I moved my arm. It took me 18 hours and a second casting to put it back where it belonged. Most disorienting experience of my life.
+                    </div>
+                </div>
+            </div>
+
+            <!-- VERY HARD - DR 18 -->
+            <div class="difficulty-tier tier-veryhard">
+                <div class="tier-label">📍 VERY HARD DIFFICULTY (DR 18) 📍</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Spatial Swap</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-18">DR 18</span>
+                        <span style="color: #888;">CHORA +3 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Instantly exchange the positions of two objects or creatures in space. Not teleportation—SWAPPING. Thing A appears where Thing B was, Thing B appears where Thing A was. Simultaneous, instantaneous, disconcerting for everyone involved. I've swapped myself with pursuers (very disorienting for them), swapped Reality Scar fragments with decoys, swapped enemies with chairs.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> Must be able to see or clearly visualize both targets. I create mental markers for each position while holding two lodestones (aligned north). I speak the Exchange Formula while simultaneously visualizing both spaces as being equivalent—neither here nor there, just "space." Then I swap the labels. The universe adjusts to match.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Range:</strong> Line of sight or intimate knowledge of both locations, up to 1 mile<br>
+                        <strong>Size Limit:</strong> Both objects must be roughly similar mass (within 50%)<br>
+                        <strong>Living Beings:</strong> Can swap creatures, but they can resist with Presence test<br>
+                        <strong>Effect:</strong> Instant, simultaneous exchange—no travel time<br>
+                        <strong>Orientation:</strong> Objects maintain their orientation (if facing north, still facing north after)<br>
+                        <strong>Velocity:</strong> Momentum is preserved (if running, you're still running after swap)<br>
+                        <strong>Components:</strong> Two aligned lodestones, clear visualization, Exchange Formula<br>
+                        <strong>Backlash:</strong> HIGH. Spatial dysphoria—your brain thinks you're in both places. I've spent hours feeling like I'm overlapped with somewhere else.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ Momentum Warning:</div>
+                        I once swapped myself (standing still) with a car (moving 60 mph). I was suddenly traveling at 60 mph with no car around me. Hit a wall. Broke several bones. The car was fine—it appeared where I'd been, stationary. Physics is a harsh mistress.
+                        <br><br>
+                        Another time I swapped positions with someone falling from a building. I appeared in mid-air, they appeared safe on the ground. I had just enough time to think "this was a mistake" before gravity asserted itself. Managed to cast a second swap with a pile of mattresses before I hit. Barely.
+                        <br><br>
+                        Conservation of momentum is non-negotiable. The spell swaps positions, not velocities. Plan accordingly.
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAMN NEAR IMPOSSIBLE - DR 22 -->
+            <div class="difficulty-tier tier-impossible">
+                <div class="tier-label">📍 DAMN NEAR IMPOSSIBLE (DR 22) 📍</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Pocket Dimension</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-22">DR 22</span>
+                        <span style="color: #888;">CHORA +4 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Create a small, stable pocket dimension—a space that exists outside normal space. Mine is about the size of a studio apartment, accessible only through a specific anchor point (a door in my Sanctuary). Time passes normally inside. I use it for storing the most dangerous Reality Scar fragments, things too volatile to keep in normal reality.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> Took two years to create. I started with a perfect geometric pattern—a tesseract projected into three dimensions, drawn in my Sanctuary with gold wire. I placed an anchor object (a Victorian mirror) at the center. For weeks, I meditated on the concept of "elsewhere," feeding energy into the pattern while reciting topological equations. Slowly, the mirror began to reflect... nothing. Not the room. Not me. Just grey void. Then I shaped the void, describing the dimensions I wanted through sacred geometry and will. The pocket dimension crystallized into existence behind the mirror.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Creation Time:</strong> Minimum 1 year of continuous work<br>
+                        <strong>Size:</strong> At DR 22, can create ~500 cubic feet of space<br>
+                        <strong>Anchor:</strong> Requires permanent physical anchor in normal space<br>
+                        <strong>Access:</strong> Only through the anchor, which can be hidden/locked<br>
+                        <strong>Properties:</strong> Empty by default, must furnish/decorate manually<br>
+                        <strong>Stability:</strong> Self-sustaining once created, but vulnerable to spatial attacks<br>
+                        <strong>Components:</strong> <span class="component">Tesseract pattern in gold</span>, anchor object, years of meditation and feeding<br>
+                        <strong>Cost:</strong> Ongoing energy drain—I sacrifice d4 HP per month to maintain stability<br>
+                        <strong>Backlash:</strong> CATASTROPHIC. If creation fumbles, you're trapped in unstable space as it collapses. Or worse, you create an UNSTABLE pocket dimension that leaks into normal space.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ Maintenance Warning:</div>
+                        The pocket dimension requires constant maintenance. If I miss a monthly feeding, it starts to destabilize. Things stored inside begin to... drift. I once neglected it for six weeks and when I returned, everything was floating and the walls had become transparent to the Nothing outside.
+                        <br><br>
+                        The Nothing is what exists where space isn't. It's not vacuum—vacuum is still space with nothing in it. This is the absence of space itself. Looking at it too long drives you mad. It's like staring at a color that doesn't exist. Your brain can't process it.
+                        <br><br>
+                        Also, you're creating a wound in space. Something on the other side noticed. Sometimes I hear scratching at the walls of my pocket dimension. From the outside. From the Nothing.
+                        <br><br>
+                        I don't know what lives in the space between spaces. I don't want to know. But it knows I'm here. And it wants in.
+                    </div>
+                </div>
+            </div>
+
+            <!-- REALITY BENDING - DR 30 -->
+            <div class="difficulty-tier tier-reality">
+                <div class="tier-label">📍 REALITY BENDING (DR 30) 📍</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Spatial Compression Field</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-30">DR 30</span>
+                        <span style="color: #888;">CHORA +6 Required | Reality-Warping</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Create a region where space itself is compressed—where the laws of distance stop applying normally. A hundred miles becomes a hundred feet. A warehouse becomes bigger on the inside than the outside. I created this once, compressing a 50-mile radius down to a 5-mile walking distance. For six hours, the normal rules of geography simply... didn't apply in that area.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> Required establishing anchor points around the entire perimeter of the target area—I placed 144 specially prepared stones in a perfect geometric pattern (sacred geometry based on the golden ratio). Each stone was inscribed with non-Euclidean equations and charged with spatial energy. At the moment of activation, I stood at the exact geometric center and channeled through all 144 anchors simultaneously, speaking the Compression Theorem. Space folded inward, distances contracted, and the normal relationship between here and there became... negotiable.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Preparation:</strong> Weeks to establish anchor network<br>
+                        <strong>Scale:</strong> At DR 30, can compress up to 50-mile radius to 10% of normal distance<br>
+                        <strong>Effect:</strong> All distances within field are proportionally reduced<br>
+                        <strong>Movement:</strong> Walking 100 feet covers 1000 feet of actual ground<br>
+                        <strong>Visibility:</strong> Can see much farther than normal—horizon is closer<br>
+                        <strong>Side Effects:</strong> Severe spatial vertigo for everyone inside, objects appear warped<br>
+                        <strong>Duration:</strong> d6 hours before anchors burn out<br>
+                        <strong>Components:</strong> <span class="component">144 inscribed anchor stones</span>, perfect geometric placement, immense energy<br>
+                        <strong>Cost:</strong> Sacrificed 20 HP and 7 Fate points. Nearly caused spatial collapse.<br>
+                        <strong>Backlash:</strong> If fumbled, you become the compression point. Your body occupies the same space as 50 miles of terrain. It's... bad.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ CAUSALITY VIOLATION WARNING:</div>
+                        During those six hours, causality got weird. People arrived at destinations before leaving because the compressed space meant they were "already there" in some sense. GPS stopped working—satellites showed people teleporting. Cell phone signals got confused. And worst of all, space "remembered" being compressed.
+                        <br><br>
+                        For weeks afterward, that area had spatial echoes. Occasionally distances would randomly shorten for a few seconds. Travelers would report roads that seemed shorter than they should be. The local government investigated for "road sign errors."
+                        <br><br>
+                        I warped 50 miles of reality. The warping was temporary, but the MEMORY of being warped persists. That region of space knows it can be compressed. And I think it wants to be compressed again.
+                        <br><br>
+                        The anchor stones, which I tried to destroy, keep reforming from local matter. I've burned them, dissolved them, disintegrated them. They come back. Within a week, there they are—144 stones in a perfect geometric pattern, made from whatever matter was nearby. Dirt, concrete, asphalt, doesn't matter. The pattern reasserts itself.
+                        <br><br>
+                        Space itself is trying to recreate the compression field. Without me. That's a problem.
+                        <br><br>
+                        I've stopped trying to destroy the anchors. Instead, I've encased each one in concrete and buried them. But I can feel them out there, pulsing with spatial potential, waiting. One day that field is going to activate on its own. And when it does, I won't be at the center to control it.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <!-- CHRONOS SECTION -->
+        <div class="art-section">
+            <div class="art-header art-chronos">/// CHRONOS ///</div>
+            <div class="note">
+                <strong>The Art of Time and Causality</strong><br><br>
+                Chronos is the most dangerous Art I know. Not because it's flashy like Pyr or violent like Vita—because it breaks causality. When you manipulate time, you're not just changing what happens; you're changing what HAPPENED, what WILL happen, what COULD have happened. Every Chronos working creates paradoxes that reality has to resolve, usually in ways that screw over the caster.
+                <br><br>
+                I've learned that time is not a river flowing one direction. It's more like an ocean—currents flowing every which way, eddies and whirlpools, tides pulling in contradictory directions. And when you dive in, you risk drowning in moments that haven't happened yet or already did or never will.
+                <br><br>
+                Use Chronos sparingly. Time holds grudges.
+            </div>
+
+            <!-- NORMAL - DR 12 -->
+            <div class="difficulty-tier tier-normal">
+                <div class="tier-label">⏰ NORMAL DIFFICULTY (DR 12) ⏰</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Time Sense</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-12">DR 12</span>
+                        <span style="color: #888;">CHRONOS +1 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Know the exact time—not clock time, but TRUE time. How long ago something happened, how long until something will happen, the precise duration of events. I use this constantly for timing rituals that require astronomical precision, knowing when guards will change shifts, estimating how long I've been in a Reality Scar.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I close my eyes and feel the rhythm of my heartbeat while speaking the Temporal Acknowledgment. My perception expands to sense the flow of time as a physical sensation—like feeling a current in water. I can count the seconds that have passed since any event I witnessed, or sense the seconds until a scheduled event.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Accuracy:</strong> Precise to the second<br>
+                        <strong>Range:</strong> Can sense time for any event I have knowledge of<br>
+                        <strong>Duration:</strong> Constant awareness for up to d6 hours<br>
+                        <strong>Information:</strong> Past events (how long ago), future events (how long until), current duration<br>
+                        <strong>Immunity:</strong> Cannot be confused by time dilation or temporal magic<br>
+                        <strong>Components:</strong> Heartbeat awareness, Temporal Acknowledgment<br>
+                        <strong>Backlash:</strong> Minimal—can make you hyperaware of time passing, which is maddening
+                    </div>
+                    
+                    <div class="note" style="background: #1a1a1a; border-left-color: #888; color: #ccc; font-style: normal; font-size: 0.9em;">
+                        <strong>The Awareness Curse:</strong> When you can feel every second passing, time becomes... heavy. I can tell you exactly how long this conversation has lasted down to the millisecond. I know precisely how many seconds I've been alive. I feel each moment tick by like water drops on stone. It's enlightening and horrifying in equal measure.
+                    </div>
+                </div>
+            </div>
+
+            <!-- HARD - DR 14 -->
+            <div class="difficulty-tier tier-hard">
+                <div class="tier-label">⏰ HARD DIFFICULTY (DR 14) ⏰</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Temporal Echo</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-14">DR 14</span>
+                        <span style="color: #888;">CHRONOS +2 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        See into the recent past of a location—watching events that already happened replay like a recording. Not quite time travel, more like viewing time's afterimage. I've used this to witness Reality Scar openings after they've closed, to see who entered a room before me, to watch my own movements from an hour ago to see if I was followed.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I create a scrying lens from polished obsidian mounted in a frame of silver wire wound counterclockwise (against time's flow). Looking through this lens while speaking the Retrospection Formula, I can see temporal echoes—ghost images of events that occurred in this space. The further back I look, the fainter and more distorted the images become.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Range:</strong> Must be physically present at the location<br>
+                        <strong>Lookback:</strong> Can view up to d6 hours into the past at base DR<br>
+                        <strong>Clarity:</strong> Recent events are clear, older events progressively blur<br>
+                        <strong>Playback:</strong> Can speed up, slow down, pause the temporal echo<br>
+                        <strong>Limitation:</strong> Vision only—no audio, smell, or other senses<br>
+                        <strong>Duration:</strong> Can maintain viewing for d6 minutes<br>
+                        <strong>Components:</strong> Obsidian scrying lens in counterclockwise silver, Retrospection Formula<br>
+                        <strong>Backlash:</strong> Moderate—temporal vertigo, feeling like you're living backwards
+                    </div>
+                    
+                    <div class="note" style="background: #1a1a1a; border-left-color: #888; color: #ccc; font-style: normal; font-size: 0.9em;">
+                        <strong>Watching Yourself:</strong> I once used this to see if I'd been followed. Watched myself enter the room an hour earlier. It's profoundly unsettling to see yourself from the outside, moving through space you're currently occupying. My past-self walked right through my current position. For a moment we overlapped and I felt... something. A doubling. Like I was in both times at once.
+                    </div>
+                </div>
+            </div>
+
+            <!-- VERY HARD - DR 18 -->
+            <div class="difficulty-tier tier-veryhard">
+                <div class="tier-label">⏰ VERY HARD DIFFICULTY (DR 18) ⏰</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Personal Time Stop</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-18">DR 18</span>
+                        <span style="color: #888;">CHRONOS +3 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Freeze time for everything except yourself. The world becomes a still photograph while you move through it. I have exactly three subjective minutes to act before temporal momentum reasserts itself. Used this to escape death more than once—bullets hang in the air, enemies freeze mid-swing, I walk through the frozen moment and reposition myself.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> Requires a prepared talisman—I use a pocket watch filled with quicksilver and inscribed with chronal formulae. At the moment of need, I crush the watch face while speaking the Suspension Word. Time's flow around me ceases. Everything goes silent. Utterly silent. Even air molecules stop moving. I can move, breathe (from the air bubble around me that moves with me), interact with frozen objects. But it's lonely. And eerie.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Preparation:</strong> Must prepare pocket watch talisman (d6 hours, one-use)<br>
+                        <strong>Duration:</strong> Exactly 3 subjective minutes—no more, no less<br>
+                        <strong>Bubble:</strong> Small air bubble and heat bubble move with you—won't suffocate or freeze<br>
+                        <strong>Movement:</strong> Normal movement speed, can interact with frozen objects<br>
+                        <strong>Frozen Physics:</strong> Objects you move remain where placed, then react when time resumes<br>
+                        <strong>Damage:</strong> Can't directly harm frozen creatures—they're immovable<br>
+                        <strong>Components:</strong> <span class="component">Prepared pocket watch</span> (one-use), Suspension Word<br>
+                        <strong>Backlash:</strong> HIGH. When time resumes, you age by the subjective time spent. Three minutes in stopped time = three minutes of aging. Also, temporal debt accumulates—you owe time to the universe.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ Debt Warning:</div>
+                        Every time I use this, I feel it. The universe keeps track. I've used Personal Time Stop eleven times. That's 33 minutes the universe thinks I shouldn't exist for. Sometimes I feel time trying to "collect"—moments where I phase out slightly, where I feel myself being pulled toward non-existence for a fraction of a second.
+                        <br><br>
+                        I'm terrified that one day I'll just... vanish. For 33 minutes. Or forever.
+                        <br><br>
+                        The silence is the worst part. When time stops, sound stops. You're in absolute silence—no wind, no ambient noise, no creaking, nothing. Just your heartbeat and breathing. After three minutes of it, normal sounds seem deafening.
+                        <br><br>
+                        And the stillness. People frozen mid-gesture, water frozen mid-splash, dust hanging motionless in air. It's like being in a photograph. A very lonely photograph.
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAMN NEAR IMPOSSIBLE - DR 22 -->
+            <div class="difficulty-tier tier-impossible">
+                <div class="tier-label">⏰ DAMN NEAR IMPOSSIBLE (DR 22) ⏰</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Temporal Loop</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-22">DR 22</span>
+                        <span style="color: #888;">CHRONOS +4 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Trap a target in a time loop—they experience the same d6 minutes over and over, each iteration resetting perfectly. From outside, they appear frozen or glitching. From inside, they're living the same moments on endless repeat. I used this once to neutralize a Man's agent who was closing in on my Sanctuary. He's been living the same six minutes for three years now. I check on him occasionally. He hasn't noticed yet.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> Must mark the boundaries of the loop in space and time. I inscribe a circle around the target using <span class="component">powdered möbius crystal</span> (naturally occurring time-crystal from a Reality Scar). I set temporal anchors—objects that mark the "reset point" in time. Then I activate the loop by speaking the Ouroboros Formula while the target is within the circle. Time within the circle begins to eat its own tail, over and over.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Preparation:</strong> d6 hours to prepare circle and anchors<br>
+                        <strong>Loop Duration:</strong> d6 minutes per cycle<br>
+                        <strong>Target Area:</strong> ~10 foot radius circle<br>
+                        <strong>Awareness:</strong> Target is aware they're looping after several iterations (Presence test)<br>
+                        <strong>Escape:</strong> Extremely difficult—requires breaking temporal anchors from inside (DR 24 with appropriate Arts)<br>
+                        <strong>Outside Perspective:</strong> Target appears to glitch, repeatedly making same movements<br>
+                        <strong>Duration:</strong> Loop persists until dispelled or anchors destroyed<br>
+                        <strong>Components:</strong> <span class="component">Möbius crystal powder</span>, temporal anchors, Ouroboros Formula<br>
+                        <strong>Cost:</strong> Massive temporal debt—I sacrificed d10 HP and now owe the universe those looped minutes<br>
+                        <strong>Backlash:</strong> SEVERE. If fumbled, YOU get stuck in the loop instead. Or worse, everyone in the area does, including you.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ Sanity Warning:</div>
+                        The Man's agent in my loop has now lived the same six minutes roughly 262,800 times (three years worth). That's over 1,800 days of subjective time experiencing the exact same moments. When/if he ever escapes, the psychological damage will be... catastrophic.
+                        <br><br>
+                        I've created a hell. A small, six-minute hell that repeats forever. And sometimes when I check on him, I see him looking at me. Like he knows I'm there on the other side of his loop, watching. Like he's pleading for release.
+                        <br><br>
+                        I tell myself he's a Man's agent. That he would have killed me or worse. But creating a personal eternity of suffering for someone... that changes you.
+                        <br><br>
+                        I have nightmares that I'm in a loop too, and all of this—my life, my work, everything—is just one iteration of my own six-minute hell. How would I know? If it resets perfectly, memory included, I'd never realize. Every iteration would feel like the first time.
+                        <br><br>
+                        What if I've been in this loop for years? What if I've had this exact thought thousands of times and forgotten it each time? What if this moment right now is iteration #500,000 and I'll never know?
+                        <br><br>
+                        I try not to think about it. But here in the dark, at 3 AM, when I can't sleep... the thought creeps in. How do I know I'm not looping?
+                    </div>
+                </div>
+            </div>
+
+            <!-- REALITY BENDING - DR 30 -->
+            <div class="difficulty-tier tier-reality">
+                <div class="tier-label">⏰ REALITY BENDING (DR 30) ⏰</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Temporal Rewrite</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-30">DR 30</span>
+                        <span style="color: #888;">CHRONOS +6 Required | Reality-Warping</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Change the past. Actually change it. Not time travel—EDITING. I can reach back and alter a single event, rewriting the timeline from that point forward. I've done this once. ONCE. I changed a moment where a Reality Scar opened in a populated area, preventing a catastrophic dimensional breach that would have killed thousands. The timeline adjusted. Those thousands lived. But the cost...
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> Required six months of preparation and resources I'll never be able to replicate. I created a temporal engine—a device built from <span class="component">chronally-charged artifacts, Reality Scar fragments that exhibited temporal anomalies, and a core of compressed time-crystal</span>. I had to know the EXACT moment I wanted to change, down to the microsecond. At the moment of casting, I entered a trance state so deep I was barely alive, connected myself to the temporal engine, and navigated backwards through my own timeline to the target moment. There, existing as a quantum observer, I made a single change—I pushed the Reality Scar's opening point three feet to the left, away from the populated building and into empty space. The timeline rippled forward from that point, rewriting itself.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Preparation:</strong> Minimum 6 months, requires temporal engine<br>
+                        <strong>Range:</strong> Can reach back up to 1 year<br>
+                        <strong>Change Magnitude:</strong> Can alter ONE small physical event (moving object, redirecting force, etc.)<br>
+                        <strong>Ripple Effect:</strong> Timeline recalculates forward from changed moment—unpredictable consequences<br>
+                        <strong>Memory:</strong> Only you remember the original timeline—everyone else only knows the new one<br>
+                        <strong>Paradox:</strong> Changes that would prevent your own existence automatically fail (grandmother paradox protection)<br>
+                        <strong>Components:</strong> <span class="component">Temporal engine, Reality Scar temporal fragments, compressed time-crystal, exact temporal coordinates</span><br>
+                        <strong>Cost:</strong> Everything. I sacrificed 25 HP, burned all remaining Fate points, and aged 10 years in the process.<br>
+                        <strong>Backlash:</strong> EXISTENTIAL. If fumbled, you're erased from the timeline. Not killed—erased. You never existed.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ ULTIMATE REALITY WARNING:</div>
+                        I saved thousands of lives. The Reality Scar opened in an empty lot instead of a building. No deaths. No interdimensional contamination. Success.
+                        <br><br>
+                        But here's what they don't tell you about changing the past: I'm the only one who remembers the original timeline. I remember the screams. I remember the body count. I remember weeks of news coverage about the "terrorist attack" (the Man's cover story). I remember the funerals.
+                        <br><br>
+                        None of that happened anymore. Those people are alive. They lived their lives, got married, had children. I walk past them sometimes—people who died in the original timeline, now alive and well in this one. They don't know I saved them. They don't know they were dead.
+                        <br><br>
+                        I carry the memories of a timeline that doesn't exist. I mourn people who are alive. I have PTSD from events that never occurred. And worst of all—I'm starting to forget the original timeline. It's fading like a dream. Soon, I won't remember what I changed. I'll just have this... feeling... that something's wrong, that reality is slightly off.
+                        <br><br>
+                        The temporal engine destroyed itself after one use. I couldn't rebuild it if I wanted to—half the components were unique. So I can never fix any mistakes I made with the rewrite. I can never verify my own memories. I'm alone in remembering a world that never was.
+                        <br><br>
+                        I violated causality. I rewrote history. And my punishment is to slowly forget I did it, while being haunted by the ghosts of a timeline I erased.
+                        <br><br>
+                        Sometimes I wonder if I should have let them die. At least then the trauma would be real. At least then other people would remember with me. Now I'm alone with memories of things that never happened to people who never died.
+                        <br><br>
+                        Last week I couldn't remember what the original timeline was. For six hours, I lived in this timeline thinking it was the only one. Then the memories came flooding back and I spent two hours crying for people I'd forgotten I'd saved.
+                        <br><br>
+                        Soon I'll forget permanently. Soon I'll just be... me. In a timeline I created. With no memory of the creating.
+                        <br><br>
+                        Do. Not. Use. This. Spell.
+                        <br><br>
+                        I'm begging you.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <!-- CONCLUSION -->
+        <div class="conclusion">
+            <div style="font-family: 'Special Elite', monospace; font-size: 1.8em; text-align: center; margin-bottom: 30px; color: #fff; text-transform: uppercase; letter-spacing: 3px;">
+                Epilogue: What We Become
+            </div>
+            
+            <p>Alchemy, Chora, Chronos. Matter, Space, Time. The three fundamental substrates of physical reality.</p>
+            
+            <p>Part I covered Pneuma, Pyr, and Vita—the Arts that deal with things that have agency or vitality. Mind, energy, life. Those Arts change YOU, certainly. But these three... these change EVERYTHING.</p>
+            
+            <p>When you manipulate matter, you're telling the universe that its building blocks are negotiable. When you bend space, you're declaring that here and there are arbitrary labels. When you rewrite time, you're saying that cause and effect are mere suggestions.</p>
+            
+            <p>Reality does not appreciate being contradicted.</p>
+            
+            <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #666;">I have cast all thirty spells in this grimoire at least once. Some hundreds of times. Some exactly once and never again.</p>
+            
+            <p>The DR 30 spells in particular have marked me permanently:</p>
+            
+            <ul style="margin: 20px 0; line-height: 2;">
+                <li><strong>Consensus Override (Pneuma):</strong> I'm forgetting the truth I rewrote. Soon I'll believe the lie like everyone else.</li>
+                <li><strong>Stellar Compression (Pyr):</strong> Part of me is still burning in that moment of fusion. I feel it in my dreams.</li>
+                <li><strong>True Resurrection (Vita):</strong> She came back wrong. And I have to live with that.</li>
+                <li><strong>Atomic Genesis (Alchemy):</strong> I'm losing mass. The universe is taking payment.</li>
+                <li><strong>Spatial Compression Field (Chora):</strong> The anchor stones keep reforming. Space remembers.</li>
+                <li><strong>Temporal Rewrite (Chronos):</strong> I mourn the dead who live. I'm alone with ghosts that breathe.</li>
+            </ul>
+            
+            <p>These aren't just spells. They're acts of cosmic hubris that permanently alter both reality and the caster. You don't walk away from DR 30 magic unchanged. You don't walk away at all, really. Part of you stays in that moment forever.</p>
+            
+            <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #666;">So why document them? Why teach others how to make the same mistakes?</p>
+            
+            <p>Because someone has to know. The Man is winning. Reality Scars are multiplying. The world is dying. And if desperate times require desperate measures, then someone needs to know what the MOST desperate measures actually are.</p>
+            
+            <p>Maybe you'll be smarter than me. Maybe you'll use these spells only when absolutely necessary. Maybe you'll find ways to mitigate the costs I couldn't.</p>
+            
+            <p>Or maybe you'll make the same mistakes. Cast the same reality-breaking spells. Pay the same terrible prices.</p>
+            
+            <p>Either way, the knowledge exists now. Use it wisely. Use it sparingly. Use it knowing that every act of high magic is a wound in the world that never fully heals.</p>
+            
+            <p style="margin-top: 40px; font-style: italic;">And when you stand where I stood, at the threshold of DR 30 magic, with the power to reshape reality in your hands...</p>
+            
+            <p style="font-style: italic;">Remember: I warned you.</p>
+            
+            <p style="font-style: italic;">I warned you that it would work.</p>
+            
+            <p style="font-style: italic;">I warned you that it would cost everything.</p>
+            
+            <p style="font-style: italic;">I warned you that you'd do it anyway.</p>
+            
+            <p style="margin-top: 40px; text-align: right;">
+                — Fjord the Hermit<br>
+                High Ritual Practice<br>
+                Reality Scar Hunter<br>
+                <em>Marked by all six Arts</em><br>
+                <em>Changed by what I've done</em><br>
+                <em>Still here, somehow</em><br>
+                <br>
+                Written in the space between moments,<br>
+                with matter that shouldn't exist,<br>
+                by someone who's in more than one timeline
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; padding: 30px; border: 3px double #888; background: #000;">
+            <div style="font-family: 'Special Elite', monospace; font-size: 1.4em; color: #fff; margin-bottom: 15px; letter-spacing: 2px;">
+                ⚠ THE COMPLETE MASTERY - PART II ⚠
+            </div>
+            <div style="font-size: 1em; color: #888; line-height: 1.8;">
+                15 Spells: ALCHEMY • CHORA • CHRONOS<br>
+                From Foundation (DR 12) to Reality-Breaking (DR 30)<br>
+                <br>
+                <strong style="color: #aaa;">MATTER • SPACE • TIME</strong><br>
+                <strong style="color: #aaa;">The Substrates of Reality</strong><br>
+                <br>
+                "Some knowledge comes with a price.<br>
+                This knowledge costs everything."<br>
+                <br>
+                <em style="color: #666;">Död Magiker Compatible<br>
+                Reality Scar Hunter's Complete Archive<br>
+                Combined with Part I: 30 Total Spells Across All Six Arts</em>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

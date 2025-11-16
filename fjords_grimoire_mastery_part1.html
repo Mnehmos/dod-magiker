@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fjord's Grimoire - The Complete Mastery</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&family=Crimson+Text:ital@1&display=swap');
+        
+        body {
+            background: #0a0a0a;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Courier Prime', monospace;
+            color: #d4d4d4;
+        }
+        
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            border: 3px solid #666;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+        }
+        
+        .title-page {
+            text-align: center;
+            border-bottom: 3px double #888;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-family: 'Special Elite', monospace;
+            font-size: 3em;
+            color: #fff;
+            text-transform: uppercase;
+            margin: 0 0 15px 0;
+            letter-spacing: 6px;
+            text-shadow: 3px 3px 0px #000;
+        }
+        
+        .subtitle {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 1.4em;
+            color: #aaa;
+            margin: 10px 0;
+        }
+        
+        .art-section {
+            margin: 50px 0;
+            page-break-before: always;
+        }
+        
+        .art-header {
+            font-family: 'Special Elite', monospace;
+            font-size: 2.2em;
+            color: #fff;
+            text-transform: uppercase;
+            margin: 30px 0 20px 0;
+            padding: 15px;
+            border: 3px double #888;
+            text-align: center;
+            letter-spacing: 4px;
+            background: #000;
+        }
+        
+        .art-pneuma { border-color: #a8f; background: linear-gradient(135deg, #1a0a2a 0%, #0a0a0a 100%); }
+        .art-pyr { border-color: #f84; background: linear-gradient(135deg, #2a0a0a 0%, #0a0a0a 100%); }
+        .art-vita { border-color: #8f8; background: linear-gradient(135deg, #0a2a0a 0%, #0a0a0a 100%); }
+        .art-alchemy { border-color: #fb4; background: linear-gradient(135deg, #2a2a0a 0%, #0a0a0a 100%); }
+        .art-chora { border-color: #4bf; background: linear-gradient(135deg, #0a1a2a 0%, #0a0a0a 100%); }
+        .art-chronos { border-color: #f8f; background: linear-gradient(135deg, #2a0a2a 0%, #0a0a0a 100%); }
+        
+        .difficulty-tier {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid;
+        }
+        
+        .tier-normal { border-left-color: #4a8; }
+        .tier-hard { border-left-color: #ea4; }
+        .tier-veryhard { border-left-color: #e84; }
+        .tier-impossible { border-left-color: #e44; }
+        .tier-reality { border-left-color: #a4f; }
+        
+        .tier-label {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.1em;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        
+        .spell {
+            background: #0a0a0a;
+            border: 2px solid #444;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .spell-title {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .spell-stats {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dotted #444;
+        }
+        
+        .dr-badge {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 4px 12px;
+            margin-right: 10px;
+            border: 1px solid;
+            font-family: 'Special Elite', monospace;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .dr-12 { border-color: #4a8; color: #4a8; }
+        .dr-14 { border-color: #ea4; color: #ea4; }
+        .dr-18 { border-color: #e84; color: #e84; }
+        .dr-22 { border-color: #e44; color: #e44; }
+        .dr-30 { border-color: #a4f; color: #a4f; }
+        
+        .spell-description {
+            margin: 15px 0;
+            line-height: 1.8;
+            color: #d4d4d4;
+        }
+        
+        .ritual-note {
+            background: #1a1a1a;
+            border-left: 3px solid #666;
+            padding: 12px 15px;
+            margin: 12px 0;
+            font-style: italic;
+            font-size: 0.95em;
+            color: #aaa;
+        }
+        
+        .mechanics {
+            background: #000;
+            border: 1px solid #555;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        
+        .mechanics-title {
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+        
+        .warning {
+            background: #3a1a1a;
+            border: 2px solid #f44;
+            padding: 12px;
+            margin: 15px 0;
+            color: #faa;
+        }
+        
+        .warning-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .component {
+            color: #8f8;
+            font-weight: bold;
+        }
+        
+        .divider {
+            text-align: center;
+            margin: 40px 0;
+            color: #666;
+            font-size: 1.8em;
+        }
+        
+        .note {
+            background: #1a1a0a;
+            border-left: 3px solid #aa8;
+            padding: 15px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #cca;
+            font-size: 0.95em;
+        }
+        
+        @media print {
+            .art-section { page-break-before: always; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="title-page">
+            <h1>THE COMPLETE MASTERY</h1>
+            <div class="subtitle">Fjord's Definitive Grimoire</div>
+            <div class="subtitle">From Foundation to Reality-Breaking</div>
+            <div style="font-family: 'Special Elite', monospace; font-size: 1.1em; color: #888; margin-top: 30px; letter-spacing: 2px;">
+                — FJORD THE HERMIT —
+            </div>
+            <div style="font-size: 0.9em; color: #666; margin-top: 15px;">
+                High Ritual Practice • Reality Scar Hunter
+            </div>
+        </div>
+        
+        <div class="note">
+            <strong>Author's Introduction:</strong><br><br>
+            This grimoire represents the culmination of my work across all six Arts. Each Art section progresses from fundamental applications (DR 12) through mastery-level workings (DR 30+). 
+            <br><br>
+            These aren't theoretical exercises—every spell documented here I've cast successfully at least once. Some of them I've cast hundreds of times. Some of them I've cast exactly once and will never attempt again.
+            <br><br>
+            The difficulty ratings reflect not just complexity but consequence. A DR 30 spell isn't just hard—it's dangerous, reality-warping, and fundamentally changes the caster. I bear scars from each one in this final category, some visible, some not.
+            <br><br>
+            Study carefully. Practice extensively at lower levels. And remember: just because you CAN cast something doesn't mean you SHOULD.
+            <br><br>
+            <em>— F.T.H., in the Sanctuary, after too much coffee and not enough sleep</em>
+        </div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <!-- PNEUMA SECTION -->
+        <div class="art-section">
+            <div class="art-header art-pneuma">/// PNEUMA ///</div>
+            <div class="note">
+                <strong>The Art of Mind and Spirit</strong><br><br>
+                Pneuma is the realm of consciousness, thought, and the entities that exist beyond flesh. It's reading minds, commanding spirits, reaching into the invisible world that overlaps our own. It's also the most intimate Art—when you touch someone's mind, you bring a piece of them back with you. I still have fragments of thoughts from people I've read. Their fears. Their desires. Their secrets.
+                <br><br>
+                Pneuma work requires ethical boundaries you must set for yourself, because the Art itself has none.
+            </div>
+
+            <!-- NORMAL - DR 12 -->
+            <div class="difficulty-tier tier-normal">
+                <div class="tier-label">⚡ NORMAL DIFFICULTY (DR 12) ⚡</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Surface Thoughts</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-12">DR 12</span>
+                        <span style="color: #888;">PNEUMA +1 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Hear the immediate, active thoughts of a target within line of sight. Not deep memories or hidden secrets—just what they're thinking RIGHT NOW. Like overhearing a conversation they're having with themselves.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I focus on the target while holding a clear quartz to my forehead (third eye position, naturally). I speak the Opening Phrase and their surface thoughts become audible—not with my ears, but in my mind. Sounds like they're whispering directly into my skull.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Range:</strong> Line of sight, up to ~50 feet<br>
+                        <strong>Duration:</strong> d6 minutes or until concentration breaks<br>
+                        <strong>Depth:</strong> Only current, active thoughts—no memories or subconscious<br>
+                        <strong>Resistance:</strong> Target can test Presence to notice the intrusion<br>
+                        <strong>Components:</strong> Clear quartz, line of sight, concentration<br>
+                        <strong>Backlash:</strong> Minor headache if fumbled. Once heard my OWN thoughts echo back at me for an hour.
+                    </div>
+                </div>
+            </div>
+
+            <!-- HARD - DR 14 -->
+            <div class="difficulty-tier tier-hard">
+                <div class="tier-label">⚡ HARD DIFFICULTY (DR 14) ⚡</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Spirit Summon</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-14">DR 14</span>
+                        <span style="color: #888;">PNEUMA +2 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Call forth a specific spirit or ghost and compel it to manifest and communicate. Not demons or major entities—those require more power. This is for the recently dead, nature spirits, local ghosts. Essential for gathering intelligence from those who've passed beyond.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I create a summoning circle with salt and silver dust. In the center, I place something connected to the spirit—for a ghost, a personal possession; for a nature spirit, an element from their domain. I burn myrrh and speak the spirit's name (or nature, if unnamed) three times while commanding them to appear.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Range:</strong> Spirit must be within ~10 miles or have strong connection to site<br>
+                        <strong>Duration:</strong> d6 minutes, spirit may leave if hostile<br>
+                        <strong>Cooperation:</strong> Spirit appears but isn't obligated to help—may need persuasion or bargaining<br>
+                        <strong>Visibility:</strong> Only caster sees/hears spirit unless it chooses to manifest fully<br>
+                        <strong>Components:</strong> Salt, silver dust, myrrh, something connected to spirit<br>
+                        <strong>Backlash:</strong> Angry spirits can attach themselves to you. I had a pissed-off Victorian lady haunting me for a week.
+                    </div>
+                </div>
+            </div>
+
+            <!-- VERY HARD - DR 18 -->
+            <div class="difficulty-tier tier-veryhard">
+                <div class="tier-label">⚡ VERY HARD DIFFICULTY (DR 18) ⚡</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Memory Extraction</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-18">DR 18</span>
+                        <span style="color: #888;">PNEUMA +3 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Dive deep into a target's mind and extract specific memories, even buried or forgotten ones. I can watch their memories like I'm experiencing them firsthand. Used this to recover Reality Scar locations from a corporate scientist who'd been mind-wiped. The memory was still there, just hidden.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> Physical contact required—I place my hands on their temples. I've prepared myself by fasting 24 hours and inscribing sigils on my own temples with ash. I speak the Incantation of Remembrance and mentally "dive" into their mind, searching through their memories like files in a cabinet. It's invasive as hell.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Range:</strong> Touch required<br>
+                        <strong>Duration:</strong> d6 minutes of "search time" in their mind<br>
+                        <strong>Depth:</strong> Can access any memory, including suppressed or "forgotten" ones<br>
+                        <strong>Resistance:</strong> Target tests Presence +4 DR to resist—conscious targets more difficult<br>
+                        <strong>Trauma:</strong> Extracting traumatic memories can damage target psychologically<br>
+                        <strong>Components:</strong> Ash sigils, 24-hour fast, physical contact<br>
+                        <strong>Backlash:</strong> HIGH. You experience their memories as if they were yours. I still remember being a child I never was, falling in love with someone I never met. It fades, but it takes time.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ Ethical Warning:</div>
+                        This spell is psychological rape. I use it only against enemies of the worst kind. The violation is mutual—you damage them, but you also carry their memories forever. Choose your targets carefully.
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAMN NEAR IMPOSSIBLE - DR 22+ -->
+            <div class="difficulty-tier tier-impossible">
+                <div class="tier-label">⚡ DAMN NEAR IMPOSSIBLE (DR 22) ⚡</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Demon Binding</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-22">DR 22</span>
+                        <span style="color: #888;">PNEUMA +4 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Summon a demon (minor to mid-level) and bind it to your will through a contract of True Names. Not suggestion. Not persuasion. BINDING. The demon becomes your servant, unable to refuse direct commands. Also unable to forgive you for it.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> Requires a perfect summoning circle in silver, inlaid with phrases in Enochian. I must know the demon's True Name (research DR 18+ to discover). I burn offerings specific to the demon's nature while chanting the Binding. When it manifests, I speak its True Name and present the contract written in my blood. The binding snaps into place like a chain.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Preparation:</strong> Minimum d6 days to research and prepare<br>
+                        <strong>Components:</strong> <span class="component">Demon's True Name</span>, silver circle, blood contract, specific offerings<br>
+                        <strong>Duration:</strong> Until contract fulfilled or demon finds loophole<br>
+                        <strong>Cost:</strong> Usually sacrifice d6 HP for blood contract, may need more depending on demon<br>
+                        <strong>Commands:</strong> Demon must obey direct commands but will twist wording if possible<br>
+                        <strong>Danger:</strong> If binding fails, demon is free and ANGRY<br>
+                        <strong>Backlash:</strong> CATASTROPHIC. Failed binding = immediate demonic attack. Even success means you now have a demon that hates you and is looking for contract loopholes.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ Existential Warning:</div>
+                        I've done this twice. Both demons eventually found loopholes in their contracts. One escaped after technically fulfilling its obligations (on a technicality I missed). The other is still bound, but it whispers to me in my sleep, promising terrible things when it gets free. And it WILL get free eventually. They always do.
+                    </div>
+                </div>
+            </div>
+
+            <!-- REALITY BENDING - DR 30 -->
+            <div class="difficulty-tier tier-reality">
+                <div class="tier-label">⚡ REALITY BENDING (DR 30) ⚡</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Consensus Override</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-30">DR 30</span>
+                        <span style="color: #888;">PNEUMA +6 Required | Reality-Warping</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Reach into the collective unconscious of everyone in an area and change what they believe is real. Not illusion. Not mind control. You're actually rewriting local consensus reality through mass psychic manipulation. I used this once to make an entire city block forget a Reality Scar had opened there. To this day, they remember a gas leak. They're wrong, but their belief is so strong it's started to become true retroactively.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> Requires preparation at the site days in advance. I plant psychic "seeds"—objects inscribed with the new narrative—throughout the area. At the moment of casting, I must be at the center of the affected zone. I enter a trance state (drug-assisted, in my case—used <span class="component">Reality Scar fungus extract</span>), and simultaneously connect to every mind in range. I speak the New Truth, and their memories reshape to accept it.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Preparation:</strong> Minimum 1 week planting psychic seeds<br>
+                        <strong>Range:</strong> ~1 city block (can be expanded with +2 DR per additional block)<br>
+                        <strong>Affected:</strong> Every sapient mind in range experiences memory alteration<br>
+                        <strong>Permanence:</strong> Changes become "real" if enough people believe them—reality bends to match<br>
+                        <strong>Components:</strong> <span class="component">Psychic seed objects</span>, <span class="component">Reality Scar fungus</span>, massive preparation<br>
+                        <strong>Cost:</strong> I sacrificed 10 HP and three Fate points. Still barely made the roll.<br>
+                        <strong>Time:</strong> Prep d6 weeks minimum, d6 hours for actual casting<br>
+                        <strong>Backlash:</strong> SOUL-DESTROYING. If fumbled, YOUR memories get overwritten instead. You forget the truth and believe the lie.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ CRITICAL: REALITY WARNING:</div>
+                        I cast this spell ONCE. It worked. The city block forgot the Reality Scar. But here's the thing—I'm starting to forget it too. My own spell is eating my memories. I have this grimoire entry as proof it happened, but my brain keeps trying to remember a gas leak instead.
+                        <br><br>
+                        This is god-tier magic. This is rewriting reality itself through mass belief. And reality doesn't forget that you violated it. I have dreams where I never cast this spell. Where the Reality Scar never existed. Where this entry doesn't exist.
+                        <br><br>
+                        If you cast this spell, write down the truth immediately and keep it somewhere you'll find it. Because you WILL start to forget.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PYR SECTION -->
+        <div class="art-section">
+            <div class="art-header art-pyr">/// PYR ///</div>
+            <div class="note">
+                <strong>The Art of Energy and Force</strong><br><br>
+                Pyr is raw power made manifest. Fire, lightning, gravity, kinetic force—if it's energy that can destroy or transform, it falls under Pyr. This is the flashiest Art, the most dramatic, and the one most likely to get you killed by your own casting.
+                <br><br>
+                Every Pyr spell carries the promise of spectacular success or spectacular immolation. I have scars from both.
+            </div>
+
+            <!-- NORMAL - DR 12 -->
+            <div class="difficulty-tier tier-normal">
+                <div class="tier-label">🔥 NORMAL DIFFICULTY (DR 12) 🔥</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Spark</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-12">DR 12</span>
+                        <span style="color: #888;">PYR +1 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Create a small flame from nothing—enough to light a candle, start a campfire, or set paper burning. The foundational Pyr working. Simple, reliable, useful. I use this daily.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I snap my fingers while focusing on the ignition point and speaking the Fire Word. Heat concentrates at that spot until combustion occurs. Takes about 3 seconds. No components needed beyond the gesture and word.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Range:</strong> Touch or ~10 feet with concentration<br>
+                        <strong>Heat Level:</strong> Enough to ignite flammable materials<br>
+                        <strong>Duration:</strong> Instant ignition, fire burns naturally afterward<br>
+                        <strong>Control:</strong> No control after ignition—it's real fire<br>
+                        <strong>Components:</strong> None, gesture and word only<br>
+                        <strong>Backlash:</strong> Minimal—worst case, you burn your fingers
+                    </div>
+                </div>
+            </div>
+
+            <!-- HARD - DR 14 -->
+            <div class="difficulty-tier tier-hard">
+                <div class="tier-label">🔥 HARD DIFFICULTY (DR 14) 🔥</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Force Lance</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-14">DR 14</span>
+                        <span style="color: #888;">PYR +2 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Project concentrated kinetic force as a visible lance of energy. Hits like a sledgehammer, can punch through barriers, send targets flying. My go-to combat spell when I need to hit hard from a distance.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I draw a straight line in the air with my finger (or staff if I'm using it) while building up kinetic potential. When I thrust my hand forward and shout the Release Word, the accumulated force erupts as a visible shimmer—like heat distortion made solid—and slams into the target.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Range:</strong> ~100 feet, line of sight<br>
+                        <strong>Damage:</strong> 2d6 kinetic damage<br>
+                        <strong>Effect:</strong> Target must test Strength or be knocked back 10 feet<br>
+                        <strong>Precision:</strong> Can target specific points (locks, windows, etc.)<br>
+                        <strong>Components:</strong> Gesture, concentration, Release Word<br>
+                        <strong>Backlash:</strong> Moderate—kickback can throw YOU backward if fumbled
+                    </div>
+                </div>
+            </div>
+
+            <!-- VERY HARD - DR 18 -->
+            <div class="difficulty-tier tier-veryhard">
+                <div class="tier-label">🔥 VERY HARD DIFFICULTY (DR 18) 🔥</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Lightning Strike</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-18">DR 18</span>
+                        <span style="color: #888;">PYR +3 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Call lightning from the sky (or generate it from nothing if indoors). A massive electrical discharge that can kill instantly, fry electronics, and leave scorch marks you can see from orbit. The spell that got me banned from three counties.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I raise my staff (or arm if desperate) skyward while accumulating static charge in a copper rod I carry. I recite the Storm Calling in its entirety—takes about 30 seconds of chanting. The air begins to smell of ozone. When I lower the rod to point at the target and speak the Final Word, the lightning comes.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Range:</strong> Line of sight, up to 500 feet<br>
+                        <strong>Damage:</strong> 5d8 electrical damage to primary target<br>
+                        <strong>Arc Effect:</strong> Chains to d2 nearby targets within 20 feet for 2d8 damage each<br>
+                        <strong>Electronics:</strong> Fries ALL unshielded electronics in 50-foot radius<br>
+                        <strong>Witnesses:</strong> VERY visible, +4 DR if trying to be subtle<br>
+                        <strong>Components:</strong> Copper rod, Storm Calling chant (30 seconds)<br>
+                        <strong>Backlash:</strong> HIGH. You're the path of least resistance if you fumble. I've been electrocuted by my own spell. Do not recommend.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ Practical Warning:</div>
+                        This spell WILL trigger Surveillance State automatically. Someone WILL notice. It's lightning. From the sky. Hitting a specific target. The Man has satellites. Plan your exit before casting.
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAMN NEAR IMPOSSIBLE - DR 22 -->
+            <div class="difficulty-tier tier-impossible">
+                <div class="tier-label">🔥 DAMN NEAR IMPOSSIBLE (DR 22) 🔥</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Gravity Well</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-22">DR 22</span>
+                        <span style="color: #888;">PYR +4 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Create a localized gravity anomaly—either crushing increased gravity or zero-G void. I can make a 20-foot sphere where gravity is 5x normal (everything inside gets pulverized) or absent entirely (everything floats). Used this to collapse a building that was leaking dimensional instability.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> This requires a physical anchor point—I use a specially prepared lead sphere inscribed with gravitational equations. I place it at the desired center of effect, then channel massive amounts of energy through geometric hand positions (mudras) while reciting the Mass-Energy Equivalence formula backwards. The anchor either becomes incredibly dense (increased gravity) or massless (zero gravity).
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Preparation:</strong> d6 hours to inscribe anchor sphere<br>
+                        <strong>Range:</strong> Touch to place anchor, effect radius 20 feet from anchor<br>
+                        <strong>Increased Gravity:</strong> 5x normal—everything takes 3d10 crushing damage per round inside<br>
+                        <strong>Zero Gravity:</strong> Everything floats, requires Agility tests to move/fight effectively<br>
+                        <strong>Duration:</strong> d6 minutes, requires concentration<br>
+                        <strong>Components:</strong> <span class="component">Inscribed lead sphere</span>, mudras, backwards formula<br>
+                        <strong>Cost:</strong> Usually sacrifice d8 HP to make the roll manageable<br>
+                        <strong>Backlash:</strong> EXTREME. Your own gravity can invert. I spent 15 minutes on the ceiling once.
+                    </div>
+                </div>
+            </div>
+
+            <!-- REALITY BENDING - DR 30 -->
+            <div class="difficulty-tier tier-reality">
+                <div class="tier-label">🔥 REALITY BENDING (DR 30) 🔥</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Stellar Compression</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-30">DR 30</span>
+                        <span style="color: #888;">PYR +6 Required | Reality-Warping</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Generate fusion-level temperatures and pressures in a contained space—essentially creating a miniature star for a few seconds. Everything inside is converted to plasma. I cast this exactly once, at a Reality Scar that was expanding uncontrollably. It worked. The Scar is now a perfectly circular glass crater half a mile wide.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> Required three months of preparation and the sacrifice of several exotic components including <span class="component">Quantum Spaghetti</span>, <span class="component">stellar core fragments</span> (don't ask), and my own blood. I created a containment field using the most complex geometric patterns I've ever drawn—had to rent a warehouse. At the moment of casting, I channeled every scrap of energy I could access into a single point while reciting nuclear fusion equations. The compression began.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Preparation:</strong> Minimum 3 months, extensive material gathering<br>
+                        <strong>Containment:</strong> CRITICAL—must create containment field or explosion affects caster<br>
+                        <strong>Range:</strong> Effects occur at designated center point, up to 1 mile away<br>
+                        <strong>Radius:</strong> Variable based on energy input—mine was 100-foot radius<br>
+                        <strong>Temperature:</strong> ~15 million degrees Fahrenheit (stellar core temperature)<br>
+                        <strong>Effect:</strong> EVERYTHING in radius is atomized. No saving throw. No armor. Gone.<br>
+                        <strong>Duration:</strong> 2-3 seconds of fusion, then rapid cooling<br>
+                        <strong>Aftermath:</strong> Leaves glass crater, radiation signature, visible from space<br>
+                        <strong>Components:</strong> <span class="component">Quantum Spaghetti, stellar fragments</span>, massive blood sacrifice, warehouse-sized geometric array<br>
+                        <strong>Cost:</strong> I sacrificed 15 HP, burned 5 Fate points, and it still almost killed me<br>
+                        <strong>Backlash:</strong> If fumbled, YOU are at the center of the fusion reaction. There is no surviving this.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ APOCALYPTIC WARNING:</div>
+                        This is not a spell. This is a strategic weapon. I created the equivalent of a small nuclear detonation using nothing but will and mathematics. The Man's satellites detected it. I had black helicopters circling the site within hours. I barely escaped.
+                        <br><br>
+                        The Reality Scar is gone, yes. But so is everything else within half a mile. The glass crater is now a radioactive dead zone. Local wildlife won't go near it. Reality itself seems thinned there, like I burned a hole through more than just physical matter.
+                        <br><br>
+                        I have nightmares about the moment of fusion. I was connected to it, feeling the energy. For 2.3 seconds, I WAS a star. And stars don't think like humans. Part of me is still there, burning. Part of me always will be.
+                        <br><br>
+                        Do not cast this spell unless you're willing to end the world.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+        <!-- VITA SECTION -->
+        <div class="art-section">
+            <div class="art-header art-vita">/// VITA ///</div>
+            <div class="note">
+                <strong>The Art of Life and Flesh</strong><br><br>
+                Vita is the manipulation of living tissue, biological processes, the code of life itself. Healing and harming, transformation and enhancement, the boundary between life and death. 
+                <br><br>
+                Working with Vita means understanding that you're not dealing with inert matter—living things WANT things. They fight back. Your own body will resist your attempts to change it. And when you resurrect the dead, sometimes what comes back isn't quite what left.
+            </div>
+
+            <!-- NORMAL - DR 12 -->
+            <div class="difficulty-tier tier-normal">
+                <div class="tier-label">🌿 NORMAL DIFFICULTY (DR 12) 🌿</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Flesh Knit</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-12">DR 12</span>
+                        <span style="color: #888;">VITA +1 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Accelerate natural healing to close wounds, mend broken bones, purge minor infections. Not instant, but hours instead of weeks. I've patched myself up after more Reality Scar expeditions than I can count.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I create a poultice from yarrow, comfrey, and my own spit (yes, really—sympathetic magic). I apply it to the wound while visualizing the flesh knitting itself together and speaking the Healing Cant. The tissue begins to regenerate at visible speed—you can watch the wound close over the course of an hour.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Healing:</strong> Restores d6 HP over the course of 1 hour<br>
+                        <strong>Scope:</strong> Can mend cuts, bruises, simple breaks, minor infections<br>
+                        <strong>Limitation:</strong> Doesn't work on disease, major trauma, or old injuries<br>
+                        <strong>Target:</strong> Self or touched target<br>
+                        <strong>Components:</strong> Yarrow, comfrey, saliva, poultice application<br>
+                        <strong>Backlash:</strong> Minor—accelerated healing can cause itching, phantom pains
+                    </div>
+                </div>
+            </div>
+
+            <!-- HARD - DR 14 -->
+            <div class="difficulty-tier tier-hard">
+                <div class="tier-label">🌿 HARD DIFFICULTY (DR 14) 🌿</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Plague Touch</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-14">DR 14</span>
+                        <span style="color: #888;">VITA +2 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Inflict rapid-onset disease with a touch. Target's immune system turns against itself—fever, nausea, hemorrhaging, organ failure if left untreated. Non-lethal but incapacitating. I use this when I need someone out of commission without corpses to explain.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I prepare by exposing myself to the pathogen I want to transmit (usually influenza or aggressive food poisoning bacteria), then immediately purging it with Vita before symptoms manifest. My body "remembers" the disease. When I touch a target skin-to-skin and speak the Contagion Word, I transfer that cellular memory to them. Their body thinks it's infected and reacts accordingly.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Delivery:</strong> Skin-to-skin contact required<br>
+                        <strong>Onset:</strong> Symptoms begin in d6 minutes<br>
+                        <strong>Severity:</strong> Target takes d6 damage and -4 DR to all actions<br>
+                        <strong>Duration:</strong> d6 hours if untreated, can be cured with medical care or counter-spell<br>
+                        <strong>Resistance:</strong> Target can test Toughness to reduce effects<br>
+                        <strong>Components:</strong> Pre-exposure to pathogen (dangerous), touch, Contagion Word<br>
+                        <strong>Backlash:</strong> Moderate—you can accidentally infect YOURSELF instead
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ Biohazard Warning:</div>
+                        The pre-exposure phase is legitimately dangerous. I once miscalculated the purge timing and spent three days violently ill. Have antibiotics ready.
+                    </div>
+                </div>
+            </div>
+
+            <!-- VERY HARD - DR 18 -->
+            <div class="difficulty-tier tier-veryhard">
+                <div class="tier-label">🌿 VERY HARD DIFFICULTY (DR 18) 🌿</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Shapeshifting</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-18">DR 18</span>
+                        <span style="color: #888;">VITA +3 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Transform your physical form into that of an animal. Not illusion—actual biological transformation. Bones reshape, organs relocate, nervous system rewires. I've been a rat to infiltrate vents, a crow to scout from above, a dog to blend with strays. It's excruciating every single time.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I must have a genetic sample from the animal I'm becoming—blood, tissue, bone. I consume it (yes, raw) while visualizing my body taking that shape. I recite the Metamorphosis Formula and... it begins. Bones crack and reform. Skin tears and reshapes. Internal organs shift. It takes about 5 agonizing minutes. I usually black out from pain for part of it.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Preparation:</strong> Must acquire and consume genetic sample<br>
+                        <strong>Transformation Time:</strong> d6 minutes of excruciating pain<br>
+                        <strong>Size Limit:</strong> Can transform into creatures from mouse to bear size<br>
+                        <strong>Mental State:</strong> You retain human intelligence but gain animal instincts—test Presence or act on impulse<br>
+                        <strong>Duration:</strong> Up to d6 hours, can revert voluntarily<br>
+                        <strong>Capabilities:</strong> Gain animal's physical abilities, senses, natural weapons<br>
+                        <strong>Gear:</strong> Clothing/items don't transform—you shed them<br>
+                        <strong>Components:</strong> <span class="component">Fresh genetic sample</span> (consumed), Metamorphosis Formula<br>
+                        <strong>Cost:</strong> The pain is severe enough that I usually sacrifice d4 HP just from transformation trauma<br>
+                        <strong>Backlash:</strong> HIGH. Failed transformation can leave you stuck between forms. I once had a snout for three days.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ Psychological Warning:</div>
+                        The animal instincts are STRONG. As a rat, I had an overwhelming urge to gnaw on wiring. As a crow, I was obsessed with shiny objects. As a dog, I— Let's just say I'm glad I was alone when I reverted. Test Presence every hour or you'll start THINKING like the animal.
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAMN NEAR IMPOSSIBLE - DR 22 -->
+            <div class="difficulty-tier tier-impossible">
+                <div class="tier-label">🌿 DAMN NEAR IMPOSSIBLE (DR 22) 🌿</div>
+                
+                <div class="spell">
+                    <div class="spell-title">Life Severance</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-22">DR 22</span>
+                        <span style="color: #888;">VITA +4 Required</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Kill instantly with a touch by severing the target's connection to life itself. Not poison, not organ failure—I'm cutting the thread that binds spirit to flesh. They simply... stop. Heart stops. Brain stops. All cellular processes cease simultaneously. Death is instant and irreversible by normal means.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> I must prepare myself through three days of meditation on death, fasting, and exposure to corpses (to understand what I'm inflicting). My hands are inscribed with the sigils of ending. When I touch the target—must be skin-to-skin—I visualize the silver cord binding their spirit to body and I CUT it with an act of pure will while speaking the Death Name.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Preparation:</strong> 3 days of meditation, fasting, corpse exposure<br>
+                        <strong>Delivery:</strong> Skin-to-skin touch required<br>
+                        <strong>Effect:</strong> Instant death, no damage, all vital functions simply cease<br>
+                        <strong>Resistance:</strong> Target can test Toughness +6 DR to survive with d6 HP remaining<br>
+                        <strong>Detectability:</strong> Death appears natural—no obvious cause<br>
+                        <strong>Reversibility:</strong> Only resurrection magic can bring them back, normal healing won't work<br>
+                        <strong>Components:</strong> 3-day preparation, sigil-inscribed hands, Death Name<br>
+                        <strong>Cost:</strong> Killing someone this way costs d8 HP from the spiritual backlash<br>
+                        <strong>Backlash:</strong> SEVERE. You feel their death. Every time I've used this, I've experienced what they felt as they died. It's traumatic.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ Moral Warning:</div>
+                        I've cast this spell four times. Four people are dead by my touch. Their last moments are burned into my memory. I remember how it felt when their hearts stopped. I remember the moment their consciousness faded. 
+                        <br><br>
+                        This isn't combat magic. This is assassination. This is murder made magical. Use it only if you're prepared to carry those deaths forever.
+                    </div>
+                </div>
+            </div>
+
+            <!-- REALITY BENDING - DR 30 -->
+            <div class="difficulty-tier tier-reality">
+                <div class="tier-label">🌿 REALITY BENDING (DR 30) 🌿</div>
+                
+                <div class="spell">
+                    <div class="spell-title">True Resurrection</div>
+                    <div class="spell-stats">
+                        <span class="dr-badge dr-30">DR 30</span>
+                        <span style="color: #888;">VITA +6, PNEUMA +4, CHRONOS +3 Required | Reality-Warping</span>
+                    </div>
+                    
+                    <div class="spell-description">
+                        Bring someone back from death—truly back, not as a zombie or ghost. Their body is restored, their spirit recalled from wherever it went, their consciousness reignited. I did this once. She came back. But she came back WRONG. Death changes you, and apparently resurrection doesn't undo those changes.
+                    </div>
+                    
+                    <div class="ritual-note">
+                        <strong>METHODOLOGY:</strong> Requires the intact body (or most of it), preparation time of one lunar cycle, and components so rare and expensive I nearly bankrupted myself acquiring them. I created a resurrection circle from powdered <span class="component">phoenix ash</span>, <span class="component">angel tears</span>, and <span class="component">the petals of a flower that blooms at midnight on graves</span>. The body was placed in the center. For three days and nights I channeled life energy—my own and from living sacrifices—into the corpse while simultaneously calling the spirit back through the veil with Pneuma and reversing their timeline to before death with Chronos. The Arts intertwined in ways I barely controlled.
+                    </div>
+                    
+                    <div class="mechanics">
+                        <div class="mechanics-title">⚙ Mechanics</div>
+                        <strong>Preparation:</strong> 1 lunar cycle (28 days minimum)<br>
+                        <strong>Requirements:</strong> Intact body or 70%+ of remains, must have died within 1 year<br>
+                        <strong>Arts Required:</strong> Vita +6 (for life), Pneuma +4 (for spirit), Chronos +3 (for reversal)<br>
+                        <strong>Additional Art Penalty:</strong> +4 DR for using three Arts (+2 Pneuma, +2 Chronos)<br>
+                        <strong>Final DR:</strong> 30 base + 4 = 34, usually reduced with massive HP sacrifice<br>
+                        <strong>Casting Time:</strong> 3 days continuous ritual<br>
+                        <strong>Components:</strong> <span class="component">Phoenix ash, angel tears, midnight grave flowers, living sacrifices</span><br>
+                        <strong>Cost:</strong> I sacrificed 20 HP, 8 Fate points, and three goats worth of life energy. Barely made the roll.<br>
+                        <strong>Success:</strong> Target returns to life fully healed<br>
+                        <strong>Side Effects:</strong> Resurrection sickness for weeks, permanent psychological changes, memories of death/afterlife<br>
+                        <strong>Backlash:</strong> If fumbled, you die instead—trading your life for theirs. Or worse, BOTH of you become undead.
+                    </div>
+                    
+                    <div class="warning">
+                        <div class="warning-title">⚠ EXISTENTIAL WARNING:</div>
+                        She came back. Her heart beats. Her lungs breathe. She walks and talks and thinks. But something in her eyes is... absent. Or maybe something new is present that shouldn't be there.
+                        <br><br>
+                        She doesn't sleep anymore. She doesn't need to. She doesn't dream. She says death was "peaceful" and resents being pulled back. She remembers things from the other side—things she won't tell me about. Sometimes she stops mid-sentence and stares at nothing for minutes at a time.
+                        <br><br>
+                        I saved her life, yes. But I'm not sure I saved HER. Whatever came back is wearing her face, has her memories, sounds like her. But there's a wrongness that everyone who knew her can feel.
+                        <br><br>
+                        Death is a one-way door for a reason. I kicked that door open and dragged someone back through. Reality noticed. Reality remembers. And I think reality is going to collect on that debt eventually.
+                        <br><br>
+                        She asked me last week why I bothered. I couldn't answer her.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider">═══════════════════════════════════</div>
+
+TO BE CONTINUED...
+
+(This is getting very long! I'll pause here. Would you like me to continue with ALCHEMY, CHORA, and CHRONOS sections? Each would have 5 spells across the difficulty tiers like these three Arts.)
+
+</div>
+</body>
+</html>
